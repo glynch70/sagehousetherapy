@@ -81,7 +81,7 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
-          <ul className="flex items-center gap-6 text-sm font-medium text-text/75">
+          <ul className="flex items-center gap-6 font-serif text-[1.05rem] font-medium tracking-[0.015em] text-text/75">
             {navigation.map((item) => (
               <li key={item.href}>
                 <Link
@@ -98,7 +98,7 @@ export function Header() {
             ))}
           </ul>
 
-          <Button href="/contact" size="sm">
+          <Button href="/contact" size="sm" className="!text-white">
             Book a Consultation
           </Button>
         </nav>
@@ -157,7 +157,7 @@ export function Header() {
                       aria-current={pathname === item.href ? "page" : undefined}
                       onClick={() => setIsMenuOpen(false)}
                       className={cn(
-                        "block rounded-md px-3 py-3 text-base font-medium text-text/80 transition-colors hover:bg-sage/25 hover:text-dark-sage focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+                        "block rounded-md px-3 py-3 font-serif text-lg font-medium tracking-[0.015em] text-text/80 transition-colors hover:bg-sage/25 hover:text-dark-sage focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
                         pathname === item.href && "bg-sage/25 text-dark-sage",
                       )}
                     >
@@ -170,7 +170,7 @@ export function Header() {
 
             <Button
               href="/contact"
-              className="mt-5 w-full"
+              className="mt-5 w-full !text-white"
               onClick={() => setIsMenuOpen(false)}
             >
               Book a Consultation
