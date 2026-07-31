@@ -67,11 +67,14 @@ export function Header() {
             priority
             className="h-20 w-auto lg:h-24"
           />
-          <span className="hidden min-w-0 flex-col xl:flex" aria-hidden="true">
-            <span className="whitespace-nowrap font-serif text-[1.65rem] leading-none text-text">
+          <span
+            className="flex min-w-0 flex-col items-center text-center xl:items-start xl:text-left"
+            aria-hidden="true"
+          >
+            <span className="whitespace-nowrap font-serif text-lg leading-[0.95] text-text sm:text-xl xl:text-[1.65rem]">
               Sage House
             </span>
-            <span className="mt-1 whitespace-nowrap text-[0.68rem] font-medium uppercase tracking-[0.3em] text-dark-sage">
+            <span className="mt-1.5 whitespace-nowrap text-[0.58rem] font-medium uppercase tracking-[0.22em] text-dark-sage sm:text-[0.62rem] xl:mt-1 xl:text-[0.68rem] xl:tracking-[0.3em]">
               Therapy
             </span>
           </span>
