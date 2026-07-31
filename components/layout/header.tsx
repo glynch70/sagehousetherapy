@@ -56,7 +56,7 @@ export function Header() {
       <Container className="flex min-h-20 items-center justify-between gap-6 py-4">
         <Link
           href="/"
-          className="flex shrink-0 items-center rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          className="flex shrink-0 items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           aria-label="Sage House Therapy home"
         >
           <Image
@@ -67,6 +67,14 @@ export function Header() {
             priority
             className="h-20 w-auto lg:h-24"
           />
+          <span className="hidden min-w-0 flex-col xl:flex" aria-hidden="true">
+            <span className="whitespace-nowrap font-serif text-[1.65rem] leading-none text-text">
+              Sage House
+            </span>
+            <span className="mt-1 whitespace-nowrap text-[0.68rem] font-medium uppercase tracking-[0.3em] text-dark-sage">
+              Therapy
+            </span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
