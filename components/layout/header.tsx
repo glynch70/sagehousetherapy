@@ -62,10 +62,10 @@ export function Header() {
           <Image
             src="/images/sage-house-logo.png"
             alt="Sage House Therapy logo"
-            width={104}
-            height={104}
+            width={1588}
+            height={1587}
             priority
-            className="h-16 w-auto sm:h-[52px]"
+            className="h-20 w-auto lg:h-24"
           />
         </Link>
 
