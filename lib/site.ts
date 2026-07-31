@@ -1,4 +1,4 @@
-export const contactEmail = "hello@sagehousetherapy.co.uk";
+export const contactEmail = "claire@sagehousetherapy.uk";
 
 export const navigation = [
   { href: "/", label: "Home" },
@@ -9,7 +9,4 @@ export const navigation = [
   { href: "/contact", label: "Contact" },
 ];
 
-export const openingHours = [
-  "Opening hours to be confirmed",
-  "Appointments available by arrangement",
-];
+export const openingHours = ["Appointments available by arrangement"];
