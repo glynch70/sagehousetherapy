@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import {
   Armchair,
-  Camera,
   CircleDot,
   Heart,
   HeartHandshake,
@@ -99,37 +99,6 @@ const expectationSteps = [
   },
 ];
 
-function ImagePlaceholder({
-  label,
-  className,
-}: {
-  label: string;
-  className?: string;
-}) {
-  return (
-    <div
-      className={cn(
-        "group relative flex min-h-80 overflow-hidden rounded-[2rem] border border-surface/80 bg-surface shadow-[0_24px_80px_rgba(67,67,67,0.10)]",
-        className,
-      )}
-      aria-label={label}
-      role="img"
-    >
-      <div className="absolute inset-0 bg-sage/35" />
-      <div className="absolute inset-6 rounded-[1.75rem] bg-surface/35" />
-      <div className="absolute inset-x-8 bottom-8 top-8 rounded-[1.5rem] border border-surface/70" />
-      <div className="relative z-10 m-auto flex max-w-xs flex-col items-center px-8 text-center">
-        <span className="flex h-14 w-14 items-center justify-center rounded-full border border-surface/80 bg-surface/80 text-dark-sage shadow-[0_14px_36px_rgba(67,67,67,0.10)] transition duration-300 group-hover:-translate-y-1">
-          <Camera className="h-6 w-6" aria-hidden="true" strokeWidth={1.6} />
-        </span>
-        <p className="mt-5 text-sm font-medium uppercase tracking-[0.18em] text-dark-sage">
-          {label}
-        </p>
-      </div>
-    </div>
-  );
-}
-
 function SectionHeading({
   eyebrow,
   title,
@@ -209,14 +178,15 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-[0.68fr_1fr] lg:grid-cols-[0.58fr_1fr] lg:items-center">
-            <ImagePlaceholder
-              label="Therapy room"
-              className="min-h-64 sm:translate-y-8 lg:min-h-[27rem]"
-            />
-            <ImagePlaceholder
-              label="Professional portrait"
-              className="min-h-[26rem] sm:min-h-[34rem] lg:min-h-[42rem]"
+          <div className="mx-auto w-full max-w-lg overflow-hidden rounded-[2rem] border border-surface/80 bg-surface shadow-[0_24px_80px_rgba(67,67,67,0.10)]">
+            <Image
+              src="/images/claire-portrait.webp"
+              alt="Claire, therapist at Sage House Therapy"
+              width={1194}
+              height={1317}
+              sizes="(min-width: 1024px) 45vw, (min-width: 640px) 512px, 100vw"
+              preload
+              className="h-auto w-full"
             />
           </div>
         </Container>
@@ -245,10 +215,16 @@ export default function Home() {
 
       <Section className="py-16 sm:py-20 lg:py-24">
         <Container className="grid gap-8 lg:grid-cols-[0.86fr_1fr] lg:items-center">
-          <ImagePlaceholder
-            label="Warm welcome image"
-            className="min-h-[24rem] lg:min-h-[34rem]"
-          />
+          <div className="overflow-hidden rounded-[2rem] border border-surface/80 bg-surface shadow-[0_24px_80px_rgba(67,67,67,0.10)]">
+            <Image
+              src="/images/claire-with-dog.webp"
+              alt="Claire with a black Labrador outside The Wellness Barn"
+              width={1200}
+              height={1200}
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              className="h-auto w-full"
+            />
+          </div>
 
           <div className="rounded-[2rem] border border-surface/80 bg-surface p-7 shadow-[0_24px_80px_rgba(67,67,67,0.08)] sm:p-10 lg:p-14">
             <SectionHeading

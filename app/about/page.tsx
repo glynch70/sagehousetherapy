@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
@@ -23,15 +24,27 @@ export default function AboutPage() {
 
       <Section className="border-y border-border bg-surface/70">
         <Container className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-20">
-          <div className="rounded-[2rem] border border-dark-sage/25 bg-sage/30 p-8 sm:p-10 lg:sticky lg:top-40">
-            <p className="font-serif text-4xl leading-tight text-text sm:text-5xl">
-              “A place to arrive as you are, without pressure to have everything
-              worked out.”
-            </p>
-            <div className="mt-8 h-px w-16 bg-accent" />
-            <p className="mt-5 text-sm font-medium uppercase tracking-[0.18em] text-dark-sage">
-              The Sage House approach
-            </p>
+          <div className="space-y-6 lg:sticky lg:top-40">
+            <div className="mx-auto max-w-md overflow-hidden rounded-[2rem] border border-dark-sage/25">
+              <Image
+                src="/images/claire-portrait.webp"
+                alt="Claire, therapist at Sage House Therapy"
+                width={1194}
+                height={1317}
+                sizes="(min-width: 1024px) 35vw, (min-width: 640px) 448px, 100vw"
+                className="h-auto w-full"
+              />
+            </div>
+            <div className="rounded-[2rem] border border-dark-sage/25 bg-sage/30 p-8 sm:p-10">
+              <p className="font-serif text-4xl leading-tight text-text sm:text-5xl">
+                “A place to arrive as you are, without pressure to have
+                everything worked out.”
+              </p>
+              <div className="mt-8 h-px w-16 bg-accent" />
+              <p className="mt-5 text-sm font-medium uppercase tracking-[0.18em] text-dark-sage">
+                The Sage House approach
+              </p>
+            </div>
           </div>
 
           <div>
