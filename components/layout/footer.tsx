@@ -23,7 +23,7 @@ export function Footer() {
             />
           </Link>
           <p className="mt-4 text-base leading-7 text-text/75">
-            A calm, compassionate space supporting adults across Edinburgh.
+            Therapy with Claire for adults in Edinburgh.
           </p>
         </div>
 
@@ -31,7 +31,7 @@ export function Footer() {
           <h2 className="font-sans text-sm font-semibold uppercase tracking-[0.16em] text-dark-sage">
             Quick Links
           </h2>
-          <ul className="mt-4 grid gap-3 text-sm text-text/75">
+          <ul className="mt-4 grid grid-cols-2 gap-3 text-sm text-text/75 lg:grid-cols-1">
             {navigation.map((item) => (
               <li key={item.href}>
                 <Link
@@ -47,7 +47,7 @@ export function Footer() {
                 href="/book"
                 className="hover:underline focus-visible:underline"
               >
-                Request an appointment
+                Make an enquiry
               </Link>
             </li>
             <li>

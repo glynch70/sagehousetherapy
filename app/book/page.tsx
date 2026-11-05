@@ -17,7 +17,7 @@ export default function BookingPage() {
     <>
       <PageIntro
         eyebrow="Your next step"
-        title="A first conversation starts here."
+        title="Tell Claire what you have in mind."
         introduction="Ask about working with Claire, request another appointment or check a practical detail. There is no payment to make when you enquire."
       />
       <Section className="border-y border-border bg-surface/55">
@@ -27,9 +27,7 @@ export default function BookingPage() {
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-dark-sage">
               How it works
             </p>
-            <h2 className="mt-4 text-4xl leading-tight">
-              Clear steps. Time to decide.
-            </h2>
+            <h2 className="mt-4 text-4xl leading-tight">What happens next</h2>
             <ol className="mt-8 space-y-7">
               {[
                 {

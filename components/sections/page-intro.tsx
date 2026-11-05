@@ -1,30 +1,20 @@
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
 
-type PageIntroProps = {
-  eyebrow?: string;
-  title: string;
-  introduction: string;
-};
-
+type PageIntroProps = { eyebrow?: string; title: string; introduction: string };
 export function PageIntro({ eyebrow, title, introduction }: PageIntroProps) {
   return (
-    <Section>
+    <section className="border-b border-border pb-12 pt-10 sm:pb-16 sm:pt-14 lg:py-20">
       <Container>
-        <div className="max-w-3xl">
-          {eyebrow ? (
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-dark-sage">
-              {eyebrow}
-            </p>
-          ) : null}
-          <h1 className="text-5xl leading-[0.95] text-text sm:text-6xl lg:text-7xl">
+        {eyebrow ? <p className="eyebrow mb-6">{eyebrow}</p> : null}
+        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-20">
+          <h1 className="max-w-2xl text-5xl leading-[1.02] tracking-[-0.02em] text-text sm:text-6xl">
             {title}
           </h1>
-          <p className="mt-6 text-lg leading-8 text-text/80">
+          <p className="max-w-xl text-lg leading-8 text-text/75 lg:pb-1">
             {introduction}
           </p>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }

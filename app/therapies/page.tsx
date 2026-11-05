@@ -18,7 +18,7 @@ export default function TherapiesPage() {
       <PageIntro
         eyebrow="Therapies"
         title="Different approaches, shaped around you."
-        introduction="Therapy is not one-size-fits-all. Claire draws on EMDR, Compassion Focused Therapy and EFT, discussing the approach with you and working at a pace that respects your needs."
+        introduction="Claire works with EMDR, Compassion Focused Therapy and EFT. You can discuss these options together and ask how they might relate to what brings you to therapy."
       />
 
       <Section className="border-y border-border bg-surface/70">
@@ -98,7 +98,7 @@ export default function TherapiesPage() {
                 subtitle: "Understanding self-criticism with greater care",
                 paragraphs: [
                   "Compassion Focused Therapy can help make sense of shame, self-criticism and the ways our threat system can shape thoughts, feelings and behaviour.",
-                  "The work supports a kinder and more balanced inner relationship—not by dismissing difficulty, but by finding ways to meet it with courage, understanding and care.",
+                  "You can explore how you respond to difficulty and practise responding to yourself with more understanding.",
                 ],
               },
               {
@@ -165,8 +165,8 @@ export default function TherapiesPage() {
       <PageCta
         title="Not sure which approach is right for you?"
         text="You do not need to decide before getting in touch. Claire can listen to what brings you to therapy and talk through the options with you."
-        primaryHref="/contact"
-        primaryLabel="Ask Claire a Question"
+        primaryHref="/book"
+        primaryLabel="Ask Claire a question"
         secondaryHref="/about"
         secondaryLabel="About Claire"
       />

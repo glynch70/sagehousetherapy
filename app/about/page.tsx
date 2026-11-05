@@ -1,157 +1,125 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-
+import Link from "next/link";
+import { MoveRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
 import { PageCta } from "@/components/sections/page-cta";
-import { PageIntro } from "@/components/sections/page-intro";
-import { Card } from "@/components/ui/card";
 
 export const metadata: Metadata = {
   title: "About Claire",
   description:
-    "Learn more about Claire and the thoughtful approach behind Sage House Therapy.",
+    "Meet Claire, the therapist behind Sage House Therapy in Edinburgh, and learn what working together can involve.",
 };
 
 export default function AboutPage() {
   return (
     <>
-      <PageIntro
-        eyebrow="About Claire"
-        title="Therapy shaped by warmth, care and respect."
-        introduction="Claire offers a compassionate, evidence-informed space where you can take time to understand what has brought you to therapy and consider what you would like to be different."
-      />
-
-      <Section className="border-y border-border bg-surface/70">
-        <Container className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-20">
-          <div className="space-y-6 lg:sticky lg:top-40">
-            <div className="mx-auto max-w-md overflow-hidden rounded-[2rem] border border-dark-sage/25">
+      <section className="pb-16 pt-12 sm:pb-20 sm:pt-16 lg:py-20">
+        <Container className="grid gap-10 md:grid-cols-[1fr_16rem] md:items-center lg:gap-24">
+          <div className="max-w-2xl">
+            <p className="eyebrow">About Claire</p>
+            <h1 className="mt-6 text-5xl leading-[1.02] tracking-[-0.02em] sm:text-6xl lg:text-7xl">
+              A person to talk to.
+              <br />
+              <span className="font-normal italic text-dark-sage">
+                A place to begin.
+              </span>
+            </h1>
+            <p className="mt-7 max-w-xl text-lg leading-8 text-text/75">
+              Choosing a therapist is a personal decision. It helps to know a
+              little about the person you’ll be sitting with, and how you might
+              work together.
+            </p>
+          </div>
+          <figure className="w-52 md:w-full">
+            <div className="overflow-hidden rounded-[6rem_1.25rem_1.25rem_1.25rem]">
               <Image
                 src="/images/claire-portrait.webp"
                 alt="Claire, therapist at Sage House Therapy"
                 width={1194}
                 height={1317}
-                sizes="(min-width: 1024px) 35vw, (min-width: 640px) 448px, 100vw"
+                sizes="(min-width: 768px) 256px, 208px"
+                preload
                 className="h-auto w-full"
               />
             </div>
-            <div className="rounded-[2rem] border border-dark-sage/25 bg-sage/30 p-8 sm:p-10">
-              <p className="font-serif text-4xl leading-tight text-text sm:text-5xl">
-                “A place to arrive as you are, without pressure to have
-                everything worked out.”
-              </p>
-              <div className="mt-8 h-px w-16 bg-accent" />
-              <p className="mt-5 text-sm font-medium uppercase tracking-[0.18em] text-dark-sage">
-                The Sage House approach
-              </p>
-            </div>
-          </div>
-
+            <figcaption className="mt-4 text-xs uppercase tracking-[0.16em] text-dark-sage">
+              Claire · Edinburgh
+            </figcaption>
+          </figure>
+        </Container>
+      </section>
+      <section className="border-y border-border bg-[#e9eee6] py-16 sm:py-20">
+        <Container className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-dark-sage">
-              Working with Claire
-            </p>
-            <h2 className="mt-5 text-4xl leading-[1.05] text-text sm:text-5xl">
-              Thoughtful support, centred on you.
+            <p className="eyebrow">Working together</p>
+            <h2 className="section-title mt-5">
+              Start with what
+              <br />
+              matters to you.
             </h2>
-            <div className="mt-7 space-y-6 text-lg leading-8 text-text/78">
-              <p>
-                People often come to therapy carrying experiences that feel
-                difficult to put into words. Claire aims to create a steady,
-                accepting relationship where those experiences can be explored
-                with care and without judgement.
-              </p>
-              <p>
-                Her work is collaborative rather than prescriptive. Together,
-                you can consider the patterns, emotions and relationships that
-                matter to you, drawing on therapeutic approaches that fit your
-                needs and preferences.
-              </p>
-              <p>
-                There is no expectation to move faster than feels manageable.
-                Therapy can unfold at a client-led, unhurried pace, with space
-                to pause, ask questions and make sense of the process as you go.
-              </p>
-            </div>
+          </div>
+          <div className="max-w-xl space-y-5 text-lg leading-8 text-text/75">
+            <p>
+              Claire works with adults in Edinburgh. People come to her with
+              anxiety, self-criticism, difficult experiences, grief or concerns
+              about their relationships.
+            </p>
+            <p>
+              Sometimes there is one thing you want to talk about. Sometimes it
+              takes a few conversations to understand what feels difficult.
+              There is room for either.
+            </p>
+            <p>
+              Claire’s approach is collaborative. You can ask questions about
+              the work, say when something doesn’t feel helpful and discuss what
+              you want to focus on next.
+            </p>
           </div>
         </Container>
-      </Section>
-
-      <Section>
+      </section>
+      <section className="py-16 sm:py-20 lg:py-24">
         <Container>
-          <div className="max-w-2xl">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-dark-sage">
-              What guides the work
-            </p>
-            <h2 className="mt-5 text-4xl leading-[1.05] text-text sm:text-5xl">
-              A calm foundation for meaningful conversations.
-            </h2>
-          </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          <p className="eyebrow">What that looks like in practice</p>
+          <h2 className="section-title mt-5">You have a say in the process.</h2>
+          <div className="mt-10 grid gap-8 md:grid-cols-3 md:gap-10">
             {[
-              {
-                number: "01",
-                title: "Compassion",
-                text: "A warm, non-judgemental space where difficult feelings can be met with care rather than criticism.",
-              },
-              {
-                number: "02",
-                title: "Evidence-informed",
-                text: "Established therapeutic ideas are used thoughtfully, with the approach discussed and shaped around you.",
-              },
-              {
-                number: "03",
-                title: "Choice and pace",
-                text: "You remain part of every decision, with time to build trust and work in a way that feels manageable.",
-              },
-            ].map((item) => (
-              <Card key={item.number} className="h-full bg-surface/90">
-                <p className="font-serif text-4xl text-accent">{item.number}</p>
-                <h3 className="mt-8 text-3xl text-text">{item.title}</h3>
-                <p className="mt-4 text-base leading-7 text-text/75">
-                  {item.text}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-sage/25">
-        <Container className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
-          <div>
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-dark-sage">
-              Areas of support
-            </p>
-            <h2 className="mt-5 text-4xl leading-[1.05] text-text sm:text-5xl">
-              Space for what you are carrying.
-            </h2>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              "Trauma and difficult experiences",
-              "Anxiety and self-criticism",
-              "Relationships and connection",
-              "Loss, grief and change",
-            ].map((item) => (
-              <div
-                key={item}
-                className="flex min-h-28 items-center rounded-2xl border border-dark-sage/20 bg-surface/75 px-6 py-5 font-serif text-2xl leading-tight text-text"
-              >
-                {item}
+              [
+                "Time to build trust",
+                "You can begin with what feels manageable. You don’t have to tell your whole story in the first conversation.",
+              ],
+              [
+                "An approach you understand",
+                "Claire draws on EMDR, Compassion Focused Therapy and EFT. She will explain the options and discuss how they relate to what you want help with.",
+              ],
+              [
+                "Space to check in",
+                "You can talk about the pace, ask for clarification and reflect together on how the sessions are going.",
+              ],
+            ].map(([title, text], index) => (
+              <div key={title} className="border-t border-border pt-6">
+                <span className="text-xs tracking-[0.16em] text-dark-sage">
+                  0{index + 1}
+                </span>
+                <h3 className="mt-4 text-3xl">{title}</h3>
+                <p className="mt-4 leading-7 text-text/75">{text}</p>
               </div>
             ))}
           </div>
+          <Link href="/therapies" className="text-link mt-9">
+            Read about the therapy approaches{" "}
+            <MoveRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </Container>
-      </Section>
-
+      </section>
       <PageCta
-        title="Would you like to explore working together?"
-        text="You are welcome to get in touch with Claire, ask questions and take some time to decide whether Sage House Therapy feels right for you."
-        primaryHref="/contact"
-        primaryLabel="Contact Claire"
-        secondaryHref="/therapies"
-        secondaryLabel="Explore Therapies"
+        eyebrow="Getting to know each other"
+        title="You can ask a question first."
+        text="An enquiry is a chance to find out about Claire’s availability, fees and approach before deciding whether to arrange an appointment."
+        primaryHref="/book"
+        primaryLabel="Make an enquiry"
+        secondaryHref="/faqs"
+        secondaryLabel="Read the FAQs"
       />
     </>
   );

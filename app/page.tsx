@@ -1,422 +1,343 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import type { LucideIcon } from "lucide-react";
-import {
-  Armchair,
-  CircleDot,
-  Heart,
-  HeartHandshake,
-  Leaf,
-  Mail,
-  MessageCircle,
-  Shield,
-  Sparkles,
-  UsersRound,
-  Waves,
-} from "lucide-react";
-
+import Link from "next/link";
+import { ArrowDown, ArrowUpRight, Leaf, MoveRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Therapy in Edinburgh",
+  title: "Therapy for adults in Edinburgh",
   description:
-    "Sage House Therapy offers a calm, compassionate space for adults in Edinburgh to understand themselves, process difficult experiences and make meaningful change.",
+    "Therapy with Claire at Sage House Therapy in Edinburgh. Explore support for anxiety, difficult experiences, loss and relationships, and ask about a first appointment.",
 };
 
-const supportAreas = [
+const support = [
   {
-    title: "Anxiety",
-    text: "A steady space to explore worry, fear and the patterns that keep anxiety going.",
-    icon: Waves,
+    title: "When worry takes up too much room",
+    text: "Anxiety, stress and the feeling that you can’t switch off.",
   },
   {
-    title: "Stress",
-    text: "Support to understand pressure, build steadier rhythms and reconnect with what matters.",
-    icon: Leaf,
+    title: "When the past keeps showing up",
+    text: "Difficult experiences or memories that still feel close.",
   },
   {
-    title: "Trauma",
-    text: "Gentle, paced therapy for experiences that still feel present or hard to make sense of.",
-    icon: Shield,
+    title: "When you’re hard on yourself",
+    text: "Self-criticism, shame and finding it difficult to feel good enough.",
   },
   {
-    title: "Loss and grief",
-    text: "Time to speak openly about loss and find your way through change with care.",
-    icon: Heart,
-  },
-  {
-    title: "Relationships",
-    text: "A place to reflect on patterns, boundaries and the relationships that shape your life.",
-    icon: UsersRound,
-  },
-  {
-    title: "Self-esteem",
-    text: "Support to soften self-criticism and develop a kinder, more grounded sense of yourself.",
-    icon: Sparkles,
+    title: "When life or relationships change",
+    text: "Grief, loss, boundaries and changes in how you connect with others.",
   },
 ];
-
-const therapyApproaches = [
+const approaches = [
+  { name: "EMDR", text: "Working with distressing memories and experiences." },
   {
-    title: "Compassion Focused Therapy",
-    text: "An approach that helps you understand self-criticism and build a warmer inner voice.",
-    icon: HeartHandshake,
+    name: "Compassion Focused Therapy",
+    text: "Exploring self-criticism and how you relate to yourself.",
   },
   {
-    title: "EMDR",
-    text: "A structured therapy that can support the processing of distressing memories and trauma.",
-    icon: CircleDot,
-  },
-  {
-    title: "EFT",
-    text: "A thoughtful approach for exploring emotions, relationships and patterns of connection.",
-    icon: MessageCircle,
+    name: "EFT",
+    text: "Making sense of emotions and patterns in relationships.",
   },
 ];
-
-const expectationSteps = [
-  {
-    number: "01",
-    title: "Get in touch",
-    text: "Send a short enquiry when you feel ready, and Claire will respond with next steps.",
-    icon: Mail,
-  },
-  {
-    number: "02",
-    title: "Initial consultation",
-    text: "You can talk through what brings you to therapy and ask any practical questions.",
-    icon: MessageCircle,
-  },
-  {
-    number: "03",
-    title: "Begin therapy",
-    text: "Sessions begin at a pace that feels safe, collaborative and supportive.",
-    icon: Armchair,
-  },
-];
-
-function SectionHeading({
-  eyebrow,
-  title,
-  text,
-  className,
-  align = "left",
-}: {
-  eyebrow?: string;
-  title: string;
-  text?: string;
-  className?: string;
-  align?: "left" | "centre";
-}) {
-  return (
-    <div
-      className={cn(
-        "max-w-3xl",
-        align === "centre" && "mx-auto text-center",
-        className,
-      )}
-    >
-      {eyebrow ? (
-        <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-dark-sage">
-          {eyebrow}
-        </p>
-      ) : null}
-      <h2 className="text-4xl leading-[1.08] text-text sm:text-5xl">{title}</h2>
-      {text ? (
-        <p className="mt-6 text-lg leading-8 text-text/75 sm:text-xl sm:leading-9">
-          {text}
-        </p>
-      ) : null}
-    </div>
-  );
-}
-
-function IconFrame({ icon: Icon }: { icon: LucideIcon }) {
-  return (
-    <span className="flex h-11 w-11 items-center justify-center rounded-full border border-sage/70 bg-background text-dark-sage transition duration-300 group-hover:-translate-y-1 group-hover:border-accent/70 group-hover:text-text">
-      <Icon className="h-5 w-5" aria-hidden="true" strokeWidth={1.6} />
-    </span>
-  );
-}
 
 export default function Home() {
   return (
     <>
-      <Section className="pb-16 pt-10 sm:pb-20 sm:pt-16 lg:pb-16 lg:pt-14">
-        <Container className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
-          <div className="max-w-3xl lg:pb-6">
-            <p className="mb-6 text-sm font-medium uppercase tracking-[0.22em] text-dark-sage">
-              Private Therapy in Edinburgh
+      <section className="home-hero overflow-hidden pb-12 pt-8 sm:pb-16 sm:pt-12 lg:pb-20 lg:pt-16">
+        <Container className="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center lg:gap-20">
+          <div className="max-w-xl">
+            <p className="eyebrow flex items-center gap-3">
+              <span className="h-px w-8 bg-accent" aria-hidden="true" />
+              Therapy for adults · Edinburgh
             </p>
-            <h1 className="max-w-xl text-4xl leading-[1.08] text-text sm:text-5xl lg:text-[4.25rem]">
-              Space to feel heard. Support to move forward.
+            <h1 className="mt-7 text-[3.4rem] leading-[0.98] tracking-[-0.025em] text-text sm:text-[4.5rem] lg:text-[5.3rem]">
+              You don’t need
+              <br />
+              the right words
+              <br />
+              <span className="font-normal italic text-dark-sage">
+                to begin.
+              </span>
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-text/78 sm:mt-8 sm:text-xl sm:leading-9">
-              Sage House Therapy offers a safe and supportive space for adults
-              looking to understand themselves, process difficult experiences
-              and make meaningful change.
+            <p className="mt-7 max-w-md text-lg leading-8 text-text/75">
+              You might know what’s troubling you, or simply know that something
+              feels difficult. Therapy with Claire is a place to start talking
+              about it.
             </p>
-            <div className="mt-9 flex flex-col gap-4 sm:mt-11 sm:flex-row">
-              <Button href="/book" className="sm:min-w-48">
-                Request an appointment
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href="/book">
+                Make an enquiry{" "}
+                <ArrowUpRight className="ml-3 h-4 w-4" aria-hidden="true" />
               </Button>
-              <Button
-                href="/therapies"
-                variant="secondary"
-                className="sm:min-w-48"
-              >
-                Learn About Therapy
-              </Button>
+              <Link href="/about" className="text-link min-h-12 px-1 text-sm">
+                Meet Claire <MoveRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
             </div>
-            <p className="mt-6 max-w-xl border-l border-accent/70 pl-4 text-sm leading-6 text-text/70 sm:text-base sm:leading-7">
-              For adults in Edinburgh · At your pace · No payment when you
-              enquire.
+            <p className="mt-4 text-sm leading-6 text-text/60">
+              Claire confirms the details with you. No payment to enquire.
             </p>
-          </div>
-
-          <div className="mx-auto w-full max-w-lg overflow-hidden rounded-[2rem] border border-surface/80 bg-surface shadow-[0_24px_80px_rgba(67,67,67,0.10)]">
-            <Image
-              src="/images/claire-with-dog.webp"
-              alt="Claire with a black Labrador outside The Wellness Barn"
-              width={1200}
-              height={1200}
-              sizes="(min-width: 1024px) 45vw, (min-width: 640px) 512px, 100vw"
-              preload
-              className="h-auto w-full"
-            />
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="py-16 sm:py-20 lg:py-24">
-        <Container>
-          <div className="rounded-[2rem] border border-surface/80 bg-surface px-6 py-12 shadow-[0_24px_80px_rgba(67,67,67,0.08)] sm:px-10 sm:py-16 lg:px-16">
-            <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-              <SectionHeading
-                title="Welcome to Sage House Therapy"
-                className="lg:max-w-xl"
-              />
-              <div className="border-l-0 border-border lg:border-l lg:pl-12">
-                <p className="text-xl leading-9 text-text/78">
-                  Starting therapy can feel like a big step. Sage House Therapy
-                  offers a calm, confidential and supportive space where you can
-                  talk openly, feel heard and begin to make sense of what you
-                  are experiencing.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="py-16 sm:py-20 lg:py-24">
-        <Container className="grid gap-8 md:grid-cols-[14rem_1fr] md:items-center lg:gap-12">
-          <div className="mx-auto w-full max-w-56 overflow-hidden rounded-[2rem] border border-surface/80 bg-surface shadow-[0_24px_80px_rgba(67,67,67,0.10)]">
-            <Image
-              src="/images/claire-portrait.webp"
-              alt="Claire, therapist at Sage House Therapy"
-              width={1194}
-              height={1317}
-              sizes="224px"
-              className="h-auto w-full"
-            />
-          </div>
-
-          <div className="rounded-[2rem] border border-surface/80 bg-surface p-7 shadow-[0_24px_80px_rgba(67,67,67,0.08)] sm:p-10 lg:p-14">
-            <SectionHeading
-              eyebrow="About Claire"
-              title="Meet Claire"
-              text="Claire is an experienced therapist based in Edinburgh, supporting adults through compassionate, thoughtful and evidence-informed therapy."
-            />
-            <div className="mt-10 h-px bg-border" />
-            <Button href="/about" variant="secondary" className="mt-10">
-              More About Claire
-            </Button>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="py-16 sm:py-20 lg:py-24">
-        <Container>
-          <SectionHeading
-            eyebrow="Support"
-            title="How therapy can help"
-            text="Therapy offers time to understand what you are carrying and find a steadier way forward."
-            align="centre"
-          />
-
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
-            {supportAreas.map((area) => (
-              <Card
-                key={area.title}
-                className="group h-full bg-surface/92 hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_28px_90px_rgba(67,67,67,0.10)]"
-              >
-                <IconFrame icon={area.icon} />
-                <h3 className="mt-8 text-3xl leading-tight text-text">
-                  {area.title}
-                </h3>
-                <p className="mt-5 text-base leading-7 text-text/75">
-                  {area.text}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="py-16 sm:py-20 lg:py-24">
-        <Container>
-          <div className="rounded-[2rem] border border-surface/80 bg-surface p-7 shadow-[0_24px_80px_rgba(67,67,67,0.08)] sm:p-10 lg:p-14">
-            <div className="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-              <SectionHeading
-                eyebrow="Approaches"
-                title="Therapy approaches"
-                text="Claire draws on thoughtful, evidence-informed approaches and will work with you to shape therapy around your needs."
-                className="lg:sticky lg:top-32"
-              />
-
-              <div className="grid gap-5">
-                {therapyApproaches.map((approach) => (
-                  <div
-                    key={approach.title}
-                    className="group grid gap-5 rounded-2xl border border-border bg-background/55 p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/55 hover:bg-background sm:grid-cols-[auto_1fr] sm:p-7"
-                  >
-                    <IconFrame icon={approach.icon} />
-                    <div>
-                      <h3 className="text-3xl leading-tight text-text">
-                        {approach.title}
-                      </h3>
-                      <p className="mt-4 text-base leading-7 text-text/75">
-                        {approach.text}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-                <Button
-                  href="/therapies"
-                  variant="secondary"
-                  className="mt-4 w-full sm:w-fit"
-                >
-                  Explore Therapies
-                </Button>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="py-16 sm:py-20 lg:py-24">
-        <Container>
-          <SectionHeading
-            eyebrow="Process"
-            title="What to expect"
-            text="The first steps are simple, respectful and designed to help you feel informed before therapy begins."
-          />
-
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {expectationSteps.map((step) => (
-              <Card
-                key={step.title}
-                className="group relative overflow-hidden bg-surface/92 hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_28px_90px_rgba(67,67,67,0.10)]"
-              >
-                <div className="flex items-start justify-between gap-6">
-                  <IconFrame icon={step.icon} />
-                  <p className="font-serif text-5xl leading-none text-accent/85">
-                    {step.number}
-                  </p>
-                </div>
-                <h3 className="mt-10 text-3xl leading-tight text-text">
-                  {step.title}
-                </h3>
-                <p className="mt-5 text-base leading-7 text-text/75">
-                  {step.text}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="border-y border-border bg-surface/65">
-        <Container className="grid gap-8 md:grid-cols-2 md:gap-12">
-          <div>
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-dark-sage">
-              When you feel ready
-            </p>
-            <h2 className="mt-4 text-4xl sm:text-5xl">
-              Begin with a conversation.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-text/75">
-              Send a simple appointment enquiry. Claire will confirm available
-              times, the session fee and the next steps before you decide.
-            </p>
-            <Button href="/book" className="mt-7">
-              Request an appointment
-            </Button>
-          </div>
-          <div className="rounded-2xl border border-border bg-background/60 p-7 sm:p-9">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-dark-sage">
-              Already working with Claire?
-            </p>
-            <h3 className="mt-4 text-3xl">Practical details, in one place.</h3>
-            <p className="mt-4 leading-7 text-text/75">
-              Ask about your next session or find out how to pay for an
-              appointment you have agreed with Claire.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Button href="/payments" variant="secondary">
-                Payment information
-              </Button>
-              <Button href="/fees" variant="secondary">
-                Fees & arrangements
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="py-16 sm:py-20 lg:py-24">
-        <Container>
-          <div className="grid gap-10 rounded-[2rem] border border-surface/80 bg-surface p-7 shadow-[0_24px_80px_rgba(67,67,67,0.08)] sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center lg:p-14">
-            <SectionHeading
-              title="Fees and appointments"
-              text="Clear information about sessions, fees and availability will be provided before therapy begins."
-            />
-            <Button
-              href="/fees"
-              variant="secondary"
-              className="w-full sm:w-fit lg:min-w-40"
+            <a
+              href="#support"
+              className="mt-12 hidden items-center gap-3 text-sm text-dark-sage underline-offset-4 hover:underline lg:inline-flex"
             >
-              View Fees
-            </Button>
+              <ArrowDown className="h-4 w-4" aria-hidden="true" />
+              Take a look around
+            </a>
+          </div>
+          <figure className="relative mx-auto w-full max-w-[32rem] lg:pt-4">
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-3 -right-3 top-10 w-4/5 rounded-[7rem_1.5rem_1.5rem_1.5rem] bg-sage/50 sm:-right-5"
+            />
+            <div className="relative overflow-hidden rounded-[6rem_1.5rem_1.5rem_1.5rem] border border-dark-sage/10 sm:rounded-[8rem_1.5rem_1.5rem_1.5rem]">
+              <Image
+                src="/images/claire-with-dog.webp"
+                alt="Claire with a black Labrador outside The Wellness Barn"
+                width={1200}
+                height={1200}
+                sizes="(min-width: 1024px) 42vw, (min-width: 640px) 512px, 100vw"
+                preload
+                className="h-auto w-full"
+              />
+            </div>
+            <figcaption className="relative mt-5 flex items-center justify-between gap-4 text-xs uppercase tracking-[0.16em] text-dark-sage">
+              <span>Claire · Sage House Therapy</span>
+              <Leaf className="h-5 w-5" strokeWidth={1.2} aria-hidden="true" />
+            </figcaption>
+          </figure>
+        </Container>
+      </section>
+
+      <section
+        id="support"
+        className="scroll-mt-28 border-y border-border bg-[#e9eee6] py-16 sm:py-20 lg:py-24"
+      >
+        <Container className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+          <div>
+            <p className="eyebrow">What brings you here?</p>
+            <h2 className="section-title mt-5">
+              Some things can be hard to work through on your own.
+            </h2>
+            <p className="mt-6 max-w-sm text-lg leading-8 text-text/75">
+              You don’t need a diagnosis or a clear explanation before getting
+              in touch. You can start with what life feels like at the moment.
+            </p>
+            <Link href="/therapies" className="text-link mt-7">
+              Explore the support available{" "}
+              <MoveRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="divide-y divide-dark-sage/20 border-y border-dark-sage/20">
+            {support.map((item, index) => (
+              <div
+                key={item.title}
+                className="grid grid-cols-[2rem_1fr] gap-4 py-6 sm:gap-6"
+              >
+                <span className="pt-1 font-serif text-xl text-dark-sage/70">
+                  0{index + 1}
+                </span>
+                <div>
+                  <h3 className="text-[1.75rem] leading-tight sm:text-3xl">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 leading-7 text-text/70">{item.text}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
-      <Section className="pb-20 pt-16 sm:pb-28 sm:pt-20 lg:pb-32 lg:pt-24">
-        <Container>
-          <div className="relative overflow-hidden rounded-[2rem] border border-dark-sage/25 bg-dark-sage px-6 py-16 text-center shadow-[0_28px_90px_rgba(67,67,67,0.12)] sm:px-10 lg:px-16 lg:py-20">
-            <div className="absolute inset-x-10 top-0 h-px bg-surface/35" />
-            <h2 className="mx-auto max-w-3xl text-5xl leading-[1.02] text-surface sm:text-6xl">
-              Ready to take the next step?
+      <section id="claire" className="py-16 sm:py-20 lg:py-24">
+        <Container className="grid gap-10 md:grid-cols-[15rem_1fr] md:items-center lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div className="flex items-center gap-6 lg:justify-center">
+            <div className="w-44 shrink-0 overflow-hidden rounded-[5rem_1rem_1rem_1rem] sm:w-52">
+              <Image
+                src="/images/claire-portrait.webp"
+                alt="Claire, therapist at Sage House Therapy"
+                width={1194}
+                height={1317}
+                sizes="208px"
+                className="h-auto w-full"
+              />
+            </div>
+            <span className="font-serif text-3xl italic text-dark-sage md:hidden">
+              Meet
+              <br />
+              Claire.
+            </span>
+          </div>
+          <div className="max-w-xl">
+            <p className="eyebrow">The person you’ll be talking to</p>
+            <h2 className="section-title mt-5">
+              Get to know Claire
+              <br />
+              before you decide.
             </h2>
-            <p className="mx-auto mt-7 max-w-2xl text-xl leading-9 text-surface/88">
-              You are welcome to get in touch when you feel ready.
+            <p className="mt-6 text-lg leading-8 text-text/75">
+              Claire works with adults in Edinburgh. Her approach is
+              collaborative: listening to what matters to you, talking through
+              the options and checking how the work feels as you go.
+            </p>
+            <p className="mt-4 text-lg leading-8 text-text/75">
+              An enquiry gives you a chance to ask questions and consider
+              whether you would like to work together.
+            </p>
+            <Link href="/about" className="text-link mt-7">
+              A little more about Claire{" "}
+              <MoveRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-y border-border bg-surface py-16 sm:py-20">
+        <Container>
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="eyebrow">Ways of working</p>
+              <h2 className="section-title mt-5">
+                An approach you can discuss together.
+              </h2>
+            </div>
+            <p className="max-w-sm leading-7 text-text/70">
+              You don’t need to choose a therapy before you enquire. Claire will
+              talk through what may be appropriate.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-8 md:grid-cols-3 md:gap-0">
+            {approaches.map((item, index) => (
+              <div
+                key={item.name}
+                className="border-t border-border pt-6 md:border-l md:border-t-0 md:px-7 md:first:border-l-0 md:first:pl-0 md:last:pr-0"
+              >
+                <span className="text-xs tracking-[0.16em] text-dark-sage">
+                  0{index + 1}
+                </span>
+                <h3 className="mt-4 text-3xl leading-tight">{item.name}</h3>
+                <p className="mt-4 leading-7 text-text/70">{item.text}</p>
+              </div>
+            ))}
+          </div>
+          <Link href="/therapies" className="text-link mt-9">
+            Read about the approaches{" "}
+            <MoveRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </Container>
+      </section>
+
+      <section className="bg-[#2f493c] py-16 text-surface sm:py-20 lg:py-24">
+        <Container className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+          <div>
+            <p className="eyebrow !text-surface/65">Beginning therapy</p>
+            <h2 className="section-title mt-5 !text-surface">
+              One enquiry.
+              <br />
+              <span className="font-normal italic">Then a conversation.</span>
+            </h2>
+            <p className="mt-6 max-w-md text-lg leading-8 text-surface/75">
+              You can send a few practical details and ask the questions you
+              need answered before arranging a session.
             </p>
             <Button
               href="/book"
               variant="secondary"
-              className="mt-10 border-surface bg-surface text-text hover:border-accent hover:bg-surface/95"
+              className="mt-8 border-surface/50 bg-surface text-[#2f493c] hover:bg-surface/90"
             >
-              Request an appointment
+              Make an enquiry{" "}
+              <ArrowUpRight className="ml-3 h-4 w-4" aria-hidden="true" />
             </Button>
           </div>
+          <ol className="divide-y divide-surface/20 border-y border-surface/20">
+            {[
+              {
+                title: "Tell Claire what you need",
+                text: "Use the enquiry builder to prepare a short email, then send it from your email app.",
+              },
+              {
+                title: "Talk through the practical details",
+                text: "Claire confirms available times, session length, fees and cancellation terms with you.",
+              },
+              {
+                title: "Decide whether to go ahead",
+                text: "Agree your appointment directly with Claire. Payment is arranged after the details are confirmed.",
+              },
+            ].map((item, index) => (
+              <li key={item.title} className="flex gap-5 py-6">
+                <span className="font-serif text-2xl text-[#d7c3a1]">
+                  0{index + 1}
+                </span>
+                <div>
+                  <h3 className="text-2xl leading-tight text-surface sm:text-3xl">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 leading-7 text-surface/70">{item.text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </Container>
-      </Section>
+      </section>
+
+      <section className="py-16 sm:py-20 lg:py-24">
+        <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div>
+            <p className="eyebrow">Before you get in touch</p>
+            <h2 className="section-title mt-5">
+              A few things you might be wondering.
+            </h2>
+            <Link href="/faqs" className="text-link mt-7">
+              All questions & answers{" "}
+              <MoveRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="divide-y divide-border border-y border-border">
+            {[
+              [
+                "Do I need to know what to say?",
+                "A short practical enquiry is enough. You don’t need to share a detailed history or choose a therapy approach in your first message.",
+              ],
+              [
+                "How much does it cost?",
+                "Claire will confirm the current fee and session length before you agree to an appointment. You can ask about these in your enquiry.",
+              ],
+              [
+                "Does the form book a time for me?",
+                "The form prepares an email for you to review and send. Claire then responds directly to agree availability and next steps.",
+              ],
+            ].map(([question, answer]) => (
+              <details key={question} className="group">
+                <summary className="flex min-h-20 cursor-pointer list-none items-center justify-between gap-6 py-5 font-serif text-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
+                  <span>{question}</span>
+                  <span
+                    className="text-xl font-light text-dark-sage group-open:rotate-45"
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="max-w-xl pb-6 leading-7 text-text/75">{answer}</p>
+              </details>
+            ))}
+          </div>
+        </Container>
+        <Container className="mt-12">
+          <div className="flex flex-col justify-between gap-5 border-t border-border pt-7 sm:flex-row sm:items-center">
+            <p className="text-sm text-text/70">Already working with Claire?</p>
+            <div className="flex flex-wrap gap-x-7 gap-y-3 text-sm">
+              <Link href="/payments" className="text-link">
+                Appointment payments{" "}
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link href="/fees" className="text-link">
+                Fees & arrangements{" "}
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }

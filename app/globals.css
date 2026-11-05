@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #e7eee8;
-  --surface: #fcfbf8;
-  --sage: #b7c8ba;
-  --dark-sage: #53664f;
-  --text: #434343;
-  --accent: #c5a46d;
+  --background: #f6f4ee;
+  --surface: #fdfcf8;
+  --sage: #bdcbbb;
+  --dark-sage: #49624f;
+  --text: #303d34;
+  --accent: #a8895d;
   --border: color-mix(in srgb, var(--dark-sage) 22%, transparent);
 }
 
@@ -74,5 +74,22 @@
   *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.18em] text-dark-sage;
+  }
+  .section-title {
+    @apply max-w-xl text-4xl leading-[1.08] tracking-[-0.015em] text-text sm:text-5xl;
+  }
+  .text-link {
+    @apply inline-flex items-center gap-3 rounded-sm font-medium text-dark-sage underline decoration-dark-sage/35 underline-offset-8 transition-colors hover:text-text hover:decoration-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent;
+  }
+}
+@layer base {
+  section[id] {
+    scroll-margin-top: 7rem;
   }
 }

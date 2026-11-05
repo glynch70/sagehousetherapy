@@ -49,7 +49,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b border-border bg-surface/90 backdrop-blur transition-shadow duration-300",
+        "sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur transition-shadow duration-300",
         hasScrolled && "shadow-[0_14px_40px_rgba(67,67,67,0.08)]",
       )}
     >
@@ -99,7 +99,7 @@ export function Header() {
           </ul>
 
           <Button href="/book" size="sm" className="!text-white">
-            Request an appointment
+            Make an enquiry
           </Button>
         </nav>
 
@@ -175,7 +175,7 @@ export function Header() {
               className="mt-5 w-full !text-white"
               onClick={() => setIsMenuOpen(false)}
             >
-              Request an appointment
+              Make an enquiry
             </Button>
           </Container>
         </div>
