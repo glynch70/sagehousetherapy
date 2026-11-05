@@ -111,10 +111,10 @@ export default function FeesPage() {
       <PageCta
         title="Get the current fee and session details."
         text="Send Claire a short message and she will reply with the practical information you need before arranging anything further."
-        primaryHref="/contact"
-        primaryLabel="Contact Claire"
-        secondaryHref="/faqs"
-        secondaryLabel="Read the FAQs"
+        primaryHref="/book"
+        primaryLabel="Request an appointment"
+        secondaryHref="/payments"
+        secondaryLabel="Payment information"
       />
     </>
   );

@@ -65,7 +65,7 @@ export function Header() {
             width={1588}
             height={1587}
             priority
-            className="h-20 w-auto lg:h-24"
+            className="h-14 w-auto lg:h-16"
           />
           <span
             className="flex min-w-0 flex-col items-center text-center xl:items-start xl:text-left"
@@ -98,8 +98,8 @@ export function Header() {
             ))}
           </ul>
 
-          <Button href="/contact" size="sm" className="!text-white">
-            Book a Consultation
+          <Button href="/book" size="sm" className="!text-white">
+            Request an appointment
           </Button>
         </nav>
 
@@ -139,6 +139,8 @@ export function Header() {
 
       <div
         id="mobile-navigation"
+        inert={!isMenuOpen}
+        aria-hidden={!isMenuOpen}
         className={cn(
           "grid overflow-hidden border-t border-border bg-surface/95 transition-[grid-template-rows,opacity] duration-300 lg:hidden",
           isMenuOpen
@@ -169,11 +171,11 @@ export function Header() {
             </nav>
 
             <Button
-              href="/contact"
+              href="/book"
               className="mt-5 w-full !text-white"
               onClick={() => setIsMenuOpen(false)}
             >
-              Book a Consultation
+              Request an appointment
             </Button>
           </Container>
         </div>

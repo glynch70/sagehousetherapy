@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   description:
     "Sage House Therapy offers a calm, professional space for therapy and emotional wellbeing.",
-  metadataBase: new URL("https://sagehousetherapy.co.uk"),
+  metadataBase: new URL("https://sagehousetherapy.uk"),
   applicationName: "Sage House Therapy",
   authors: [{ name: "Sage House Therapy" }],
   creator: "Sage House Therapy",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Sage House Therapy",
     description:
       "A calm, professional space for therapy and emotional wellbeing.",
-    url: "https://sagehousetherapy.co.uk",
+    url: "https://sagehousetherapy.uk",
     siteName: "Sage House Therapy",
     locale: "en_GB",
     type: "website",
@@ -51,8 +51,16 @@ export default function RootLayout({
       className={`${inter.variable} ${cormorantGaramond.variable}`}
     >
       <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-surface focus:px-6 focus:py-3 focus:text-text"
+        >
+          Skip to content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

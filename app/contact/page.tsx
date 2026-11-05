@@ -24,6 +24,20 @@ export default function ContactPage() {
       />
 
       <Section className="border-y border-border bg-surface/70">
+        <Container className="mb-10 flex flex-col gap-5 rounded-2xl sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-dark-sage">
+              Looking for an appointment?
+            </p>
+            <p className="mt-3 text-lg leading-8 text-text/75">
+              Use the guided enquiry to prepare your message, or email Claire
+              directly below.
+            </p>
+          </div>
+          <Button href="/book" className="shrink-0">
+            Request an appointment
+          </Button>
+        </Container>
         <Container className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-16">
           <div className="min-w-0 rounded-[2rem] border border-dark-sage/25 bg-sage/30 p-8 sm:p-10">
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-dark-sage">

@@ -14,6 +14,16 @@ export const metadata: Metadata = {
 export default function FaqsPage() {
   const faqs = [
     {
+      question: "Does an online enquiry book an appointment?",
+      answer:
+        "No. The appointment enquiry helps you prepare an email. You review it and send it from your email app. Claire then confirms availability, the fee and session arrangements with you directly. No time is reserved by completing the form.",
+    },
+    {
+      question: "When do I pay?",
+      answer:
+        "There is no payment when you enquire. Agree the appointment, fee and cancellation terms with Claire first. She will explain how to pay; if she provides a payment link, use that link for your agreed session. Payment does not create a new booking.",
+    },
+    {
       question: "How do I know if therapy is right for me?",
       answer:
         "You do not need to be certain before making contact. You may have something specific you want support with, or a more general sense that life feels difficult or stuck. An initial conversation can help you ask questions and consider whether therapy feels like a useful next step.",

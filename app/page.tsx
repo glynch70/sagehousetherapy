@@ -125,7 +125,7 @@ function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="text-5xl leading-[1.02] text-text sm:text-6xl">{title}</h2>
+      <h2 className="text-4xl leading-[1.08] text-text sm:text-5xl">{title}</h2>
       {text ? (
         <p className="mt-6 text-lg leading-8 text-text/75 sm:text-xl sm:leading-9">
           {text}
@@ -146,14 +146,14 @@ function IconFrame({ icon: Icon }: { icon: LucideIcon }) {
 export default function Home() {
   return (
     <>
-      <Section className="pb-16 pt-10 sm:pb-20 sm:pt-16 lg:pb-28 lg:pt-24">
-        <Container className="grid gap-12 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:gap-16">
+      <Section className="pb-16 pt-10 sm:pb-20 sm:pt-16 lg:pb-16 lg:pt-14">
+        <Container className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
           <div className="max-w-3xl lg:pb-6">
             <p className="mb-6 text-sm font-medium uppercase tracking-[0.22em] text-dark-sage">
               Private Therapy in Edinburgh
             </p>
-            <h1 className="max-w-4xl text-5xl leading-[0.96] text-text sm:text-6xl lg:text-7xl xl:text-8xl">
-              A calm, compassionate space to help you move forward.
+            <h1 className="max-w-xl text-4xl leading-[1.08] text-text sm:text-5xl lg:text-[4.25rem]">
+              Space to feel heard. Support to move forward.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-text/78 sm:mt-8 sm:text-xl sm:leading-9">
               Sage House Therapy offers a safe and supportive space for adults
@@ -161,8 +161,8 @@ export default function Home() {
               and make meaningful change.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:mt-11 sm:flex-row">
-              <Button href="/contact" className="sm:min-w-48">
-                Book a Consultation
+              <Button href="/book" className="sm:min-w-48">
+                Request an appointment
               </Button>
               <Button
                 href="/therapies"
@@ -173,8 +173,8 @@ export default function Home() {
               </Button>
             </div>
             <p className="mt-6 max-w-xl border-l border-accent/70 pl-4 text-sm leading-6 text-text/70 sm:text-base sm:leading-7">
-              Supporting adults across Edinburgh with warmth, care and
-              professional experience.
+              For adults in Edinburgh · At your pace · No payment when you
+              enquire.
             </p>
           </div>
 
@@ -341,6 +341,44 @@ export default function Home() {
         </Container>
       </Section>
 
+      <Section className="border-y border-border bg-surface/65">
+        <Container className="grid gap-8 md:grid-cols-2 md:gap-12">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-dark-sage">
+              When you feel ready
+            </p>
+            <h2 className="mt-4 text-4xl sm:text-5xl">
+              Begin with a conversation.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-text/75">
+              Send a simple appointment enquiry. Claire will confirm available
+              times, the session fee and the next steps before you decide.
+            </p>
+            <Button href="/book" className="mt-7">
+              Request an appointment
+            </Button>
+          </div>
+          <div className="rounded-2xl border border-border bg-background/60 p-7 sm:p-9">
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-dark-sage">
+              Already working with Claire?
+            </p>
+            <h3 className="mt-4 text-3xl">Practical details, in one place.</h3>
+            <p className="mt-4 leading-7 text-text/75">
+              Ask about your next session or find out how to pay for an
+              appointment you have agreed with Claire.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button href="/payments" variant="secondary">
+                Payment information
+              </Button>
+              <Button href="/fees" variant="secondary">
+                Fees & arrangements
+              </Button>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       <Section className="py-16 sm:py-20 lg:py-24">
         <Container>
           <div className="grid gap-10 rounded-[2rem] border border-surface/80 bg-surface p-7 shadow-[0_24px_80px_rgba(67,67,67,0.08)] sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center lg:p-14">
@@ -370,11 +408,11 @@ export default function Home() {
               You are welcome to get in touch when you feel ready.
             </p>
             <Button
-              href="/contact"
+              href="/book"
               variant="secondary"
               className="mt-10 border-surface bg-surface text-text hover:border-accent hover:bg-surface/95"
             >
-              Contact Claire
+              Request an appointment
             </Button>
           </div>
         </Container>

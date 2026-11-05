@@ -42,6 +42,30 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href="/book"
+                className="hover:underline focus-visible:underline"
+              >
+                Request an appointment
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/payments"
+                className="hover:underline focus-visible:underline"
+              >
+                Appointment payments
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/privacy"
+                className="hover:underline focus-visible:underline"
+              >
+                Website privacy
+              </Link>
+            </li>
           </ul>
         </div>
 

@@ -34,3 +34,7 @@ npm run lint
 npm run format:check
 npm run build
 ```
+
+## Booking and payments
+
+See [Booking and payment setup](docs/BOOKING-AND-PAYMENTS.md) for the manual-confirmation enquiry flow, SumUp account setup and activation requirements. Checkout stays unavailable until Claire supplies a verified payment link.
