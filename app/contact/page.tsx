@@ -51,8 +51,9 @@ export default function ContactPage() {
               <span className="block sm:inline">{emailDomain}</span>
             </a>
             <p className="mt-7 text-base leading-7 text-text/75">
-              Claire will respond with current practical information and the
-              next available steps.
+              Claire offers virtual appointments and in-person sessions at The
+              Wellness Barn, Tuesday–Thursday and Friday mornings. She will
+              reply to confirm available times.
             </p>
             <Button href={`mailto:${contactEmail}`} className="mt-8">
               Write an Email

@@ -9,4 +9,7 @@ export const navigation = [
   { href: "/contact", label: "Contact" },
 ];
 
-export const openingHours = ["Appointments available by arrangement"];
+export const openingHours = [
+  "Tuesday–Thursday and Friday mornings",
+  "Virtual or in person at The Wellness Barn",
+];

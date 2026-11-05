@@ -14,6 +14,17 @@ export const metadata: Metadata = {
 export default function FaqsPage() {
   const faqs = [
     {
+      question: "Can I check available spaces?",
+      answer:
+        "Yes. Choose ‘Check available spaces’ on the homepage, or ‘Ask about available spaces’ in the appointment enquiry. Appointments are offered Tuesday–Thursday from 8:30am, with sessions finishing by 7pm, and on Friday mornings. A 6:30pm start is only for a 30-minute appointment. Claire checks her diary and confirms available start times directly. The website does not show a live calendar or reserve appointments automatically.",
+    },
+    {
+      question: "What is the cancellation and refund policy?",
+      answer:
+        "Your payment will be refunded if you cancel with at least 48 hours’ notice. If Claire cancels your session, you will be refunded. Contact Claire directly to cancel or discuss a change to your appointment.",
+    },
+
+    {
       question: "Does an online enquiry book an appointment?",
       answer:
         "No. The appointment enquiry helps you prepare an email. You review it and send it from your email app. Claire then confirms availability, the fee and session arrangements with you directly. No time is reserved by completing the form.",
@@ -21,7 +32,7 @@ export default function FaqsPage() {
     {
       question: "When do I pay?",
       answer:
-        "There is no payment when you enquire. Agree the appointment, fee and cancellation terms with Claire first. She will explain how to pay; if she provides a payment link, use that link for your agreed session. Payment does not create a new booking.",
+        "The 15-minute consultation is free. Therapy sessions must be paid for before the session to hold the appointment. Agree a suitable time with Claire first; she will then explain how to pay. A payment by itself does not create a booking.",
     },
     {
       question: "How do I know if therapy is right for me?",
@@ -56,7 +67,7 @@ export default function FaqsPage() {
     {
       question: "How much do sessions cost?",
       answer:
-        "Current fees and practical arrangements are confirmed directly before a booking is made. Please visit the Fees page or contact Claire for up-to-date information.",
+        "A 15-minute consultation is free. The fee is £65 per therapeutic hour or £85 for a 90-minute therapeutic session. Sessions are available virtually or in person at The Wellness Barn.",
     },
     {
       question: "What if I am nervous about starting?",

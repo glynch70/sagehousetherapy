@@ -75,7 +75,7 @@ export default function Home() {
               </Link>
             </div>
             <p className="mt-4 text-sm leading-6 text-text/60">
-              Claire confirms the details with you. No payment to enquire.
+              Free 15-minute consultation. Virtual or at The Wellness Barn.
             </p>
             <a
               href="#support"
@@ -257,11 +257,11 @@ export default function Home() {
               },
               {
                 title: "Talk through the practical details",
-                text: "Claire confirms available times, session length, fees and cancellation terms with you.",
+                text: "Claire checks her diary and agrees a suitable time. Choose a virtual session or an in-person appointment at The Wellness Barn.",
               },
               {
                 title: "Decide whether to go ahead",
-                text: "Agree your appointment directly with Claire. Payment is arranged after the details are confirmed.",
+                text: "Your consultation is free. Therapy sessions must be paid for before the session to hold the appointment.",
               },
             ].map((item, index) => (
               <li key={item.title} className="flex gap-5 py-6">
@@ -277,6 +277,26 @@ export default function Home() {
               </li>
             ))}
           </ol>
+        </Container>
+      </section>
+
+      <section className="border-b border-border bg-[#e9eee6] py-10 sm:py-12">
+        <Container className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
+          <div>
+            <p className="eyebrow">Appointments & availability</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl">
+              Find a space that works for you.
+            </h2>
+            <p className="mt-3 max-w-xl leading-7 text-text/75">
+              Tuesday–Thursday and Friday mornings. Request a free 15-minute
+              consultation or ask about a therapeutic appointment. Claire
+              confirms available times directly.
+            </p>
+          </div>
+          <Button href="/book?availability=check" className="shrink-0">
+            Check available spaces{" "}
+            <ArrowUpRight className="ml-3 h-4 w-4" aria-hidden="true" />
+          </Button>
         </Container>
       </section>
 
@@ -300,7 +320,7 @@ export default function Home() {
               ],
               [
                 "How much does it cost?",
-                "Claire will confirm the current fee and session length before you agree to an appointment. You can ask about these in your enquiry.",
+                "The 15-minute consultation is free. Therapy is £65 per therapeutic hour, or £85 for a 90-minute session. Paid sessions must be paid for in advance to hold the appointment.",
               ],
               [
                 "Does the form book a time for me?",

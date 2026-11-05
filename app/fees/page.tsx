@@ -1,118 +1,102 @@
 import type { Metadata } from "next";
-
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { PageCta } from "@/components/sections/page-cta";
 import { PageIntro } from "@/components/sections/page-intro";
-import { Card } from "@/components/ui/card";
+import { paymentPolicy, cancellationPolicy } from "@/lib/appointments";
 
 export const metadata: Metadata = {
-  title: "Fees",
+  title: "Fees and appointments",
   description:
-    "Practical information about fees, consultations and arranging therapy with Sage House Therapy.",
+    "A free 15-minute consultation, £65 per therapeutic hour or £85 for a 90-minute session. Virtual or in-person appointments at The Wellness Barn.",
 };
 
 export default function FeesPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Fees and practical information"
-        title="Clear arrangements, discussed before you begin."
-        introduction="Claire will confirm the current session fee and practical details with you before a booking is made, giving you time to ask questions and decide whether you would like to continue."
+        eyebrow="Fees & arrangements"
+        title="Know the details before you begin."
+        introduction="Start with a free 15-minute consultation, or ask Claire about a therapeutic appointment. Sessions are available virtually or in person at The Wellness Barn."
       />
-
-      <Section className="border-y border-border bg-surface/70">
+      <Section className="border-b border-border bg-surface/70">
         <Container>
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3 md:gap-10">
             {[
               {
-                number: "01",
-                title: "Make an enquiry",
-                text: "Email Claire with a brief outline of what you are looking for and any questions you would like to ask.",
+                name: "First consultation",
+                price: "Free",
+                length: "15 minutes",
+                text: "An opportunity to ask questions and discuss whether you would like to work with Claire.",
               },
               {
-                number: "02",
-                title: "Discuss the details",
-                text: "Claire will share the current fee, session arrangements and relevant practical information with you.",
+                name: "Therapeutic hour",
+                price: "£65",
+                length: "Per therapeutic hour",
+                text: "Ask Claire about arranging a therapeutic-hour appointment and what to expect.",
               },
               {
-                number: "03",
-                title: "Decide in your own time",
-                text: "There is space to consider whether the proposed arrangement and therapeutic approach feel right for you.",
+                name: "Longer therapy session",
+                price: "£85",
+                length: "90 minutes",
+                text: "Discuss whether a longer appointment is appropriate for the work you are doing together.",
               },
             ].map((item) => (
-              <Card key={item.number} className="h-full bg-surface/90">
-                <p className="font-serif text-4xl text-accent">{item.number}</p>
-                <h2 className="mt-8 text-3xl leading-tight text-text">
-                  {item.title}
-                </h2>
-                <p className="mt-5 text-base leading-7 text-text/75">
-                  {item.text}
-                </p>
-              </Card>
+              <article key={item.name} className="border-t border-border pt-6">
+                <p className="eyebrow">{item.name}</p>
+                <h2 className="mt-5 text-6xl">{item.price}</h2>
+                <p className="mt-2 font-medium text-dark-sage">{item.length}</p>
+                <p className="mt-5 leading-7 text-text/75">{item.text}</p>
+                <Link href="/book" className="text-link mt-6">
+                  Enquire about an appointment{" "}
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </article>
             ))}
           </div>
         </Container>
       </Section>
-
       <Section>
-        <Container className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-20">
+        <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-dark-sage">
-              Before booking
-            </p>
-            <h2 className="mt-5 text-4xl leading-[1.05] text-text sm:text-5xl">
-              Practical questions are part of the conversation.
+            <p className="eyebrow">Practical details</p>
+            <h2 className="section-title mt-5">
+              Arrangements you can plan around.
             </h2>
           </div>
-          <div className="divide-y divide-border border-y border-border">
+          <dl className="divide-y divide-border border-y border-border">
             {[
-              {
-                title: "Current session fee",
-                text: "Please contact Claire for the current fee. This will be confirmed clearly before you agree to a session.",
-              },
-              {
-                title: "Session arrangements",
-                text: "Claire will explain the available format, session length and any other relevant arrangements when responding to your enquiry.",
-              },
-              {
-                title: "Changes and cancellations",
-                text: "Any expectations around changing or cancelling an appointment will be shared before therapy begins.",
-              },
-            ].map((item) => (
-              <div key={item.title} className="py-7 sm:py-8">
-                <h3 className="text-3xl text-text">{item.title}</h3>
-                <p className="mt-4 text-lg leading-8 text-text/75">
-                  {item.text}
-                </p>
+              [
+                "Where sessions take place",
+                "Choose a virtual session or meet Claire in person at The Wellness Barn. Claire will share the joining or arrival details when arranging your appointment.",
+              ],
+              [
+                "Appointment days",
+                "Tuesday–Thursday appointments begin from 8:30am, with sessions finishing by 7pm. The latest start is 6:30pm for a 30-minute appointment. Friday appointments are in the morning. Claire confirms the exact time for your chosen session.",
+              ],
+              ["Payment before your session", paymentPolicy],
+              [
+                "Cancellations and refunds",
+                cancellationPolicy +
+                  " Contact Claire directly to cancel or discuss a change to your appointment.",
+              ],
+            ].map(([title, text]) => (
+              <div key={title} className="py-6">
+                <dt className="font-serif text-2xl sm:text-3xl">{title}</dt>
+                <dd className="mt-4 leading-8 text-text/75">{text}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </Container>
       </Section>
-
-      <Section className="bg-sage/25">
-        <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-dark-sage">
-              A considered first step
-            </p>
-            <h2 className="mt-5 text-4xl leading-[1.05] text-text sm:text-5xl">
-              Asking about fees does not commit you to therapy.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-text/75">
-              You are welcome to gather the information you need, ask practical
-              questions and take time to decide what feels manageable.
-            </p>
-          </div>
-        </Container>
-      </Section>
-
       <PageCta
-        title="Get the current fee and session details."
-        text="Send Claire a short message and she will reply with the practical information you need before arranging anything further."
+        eyebrow="Find a time"
+        title="Ask about available spaces."
+        text="Choose the session you are interested in and share your preferred day or time. Claire checks her diary and responds directly; the enquiry form does not reserve a slot."
         primaryHref="/book"
-        primaryLabel="Request an appointment"
+        primaryLabel="Check availability"
         secondaryHref="/payments"
         secondaryLabel="Payment information"
       />

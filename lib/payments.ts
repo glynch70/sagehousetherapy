@@ -1,8 +1,6 @@
 // Add only Claire's verified, reusable merchant checkout link in Vercel.
 // Never accept checkout destinations from visitor query parameters.
-export function getPaymentLink(
-  value = process.env.SAGE_PAYMENT_LINK,
-): string | null {
+export function getPaymentLink(value?: string): string | null {
   if (!value) return null;
   try {
     const url = new URL(value);

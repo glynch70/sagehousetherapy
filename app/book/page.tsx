@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
+import { availabilitySummary } from "@/lib/appointments";
 import { CalendarDays, CreditCard, MessageCircle } from "lucide-react";
 import { AppointmentRequest } from "@/components/booking/appointment-request";
 import { Container } from "@/components/layout/container";
@@ -18,21 +20,44 @@ export default function BookingPage() {
       <PageIntro
         eyebrow="Your next step"
         title="Tell Claire what you have in mind."
-        introduction="Ask about working with Claire, request another appointment or check a practical detail. There is no payment to make when you enquire."
+        introduction="Request a free 15-minute consultation, enquire about a £65 therapeutic hour or £85 90-minute session, or ask about available spaces. Appointments are virtual or in person at The Wellness Barn."
       />
       <Section className="border-y border-border bg-surface/55">
         <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
-          <AppointmentRequest />
+          <Suspense
+            fallback={
+              <div className="lg:col-start-2 lg:row-start-1" role="status">
+                Loading appointment enquiry…
+              </div>
+            }
+          >
+            <AppointmentRequest />
+          </Suspense>
           <aside className="lg:sticky lg:top-32 lg:col-start-1 lg:row-start-1">
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-dark-sage">
               How it works
             </p>
-            <h2 className="mt-4 text-4xl leading-tight">What happens next</h2>
+            <h2 className="mt-4 text-4xl leading-tight">
+              Availability is checked by Claire
+            </h2>
+            <div className="mt-6 border-y border-border py-5">
+              <h3 className="font-medium font-sans text-base">
+                Appointment days and times
+              </h3>
+              <p className="mt-2 text-sm leading-7 text-text/75">
+                {availabilitySummary}
+              </p>
+              <p className="mt-3 text-sm leading-7 text-text/75">
+                The 6:30pm start is not available for a therapeutic-hour or
+                90-minute session. Ask Claire about arrangements for a half-hour
+                appointment.
+              </p>
+            </div>
             <ol className="mt-8 space-y-7">
               {[
                 {
                   icon: MessageCircle,
-                  title: "1. Send your enquiry",
+                  title: "1. Ask for a session or available space",
                   text: "Prepare a short message here, then send it from your email app.",
                 },
                 {
@@ -43,7 +68,7 @@ export default function BookingPage() {
                 {
                   icon: CreditCard,
                   title: "3. Pay once agreed",
-                  text: "After confirming your appointment, arrange payment with Claire. If she sends a payment link, use the amount and reference she provides.",
+                  text: "Therapy appointments must be paid for before the session to hold the time. Claire will share payment arrangements after agreeing a suitable slot. The 15-minute consultation is free.",
                 },
               ].map(({ icon: Icon, title, text }) => (
                 <li key={title} className="flex gap-4">

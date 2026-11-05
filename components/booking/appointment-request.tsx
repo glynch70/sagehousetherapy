@@ -4,28 +4,40 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowLeft, ArrowRight, Check, Copy, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { contactEmail } from "@/lib/site";
+import {
+  appointmentOptions,
+  appointmentFormats,
+  appointmentDays,
+  paymentPolicy,
+  cancellationPolicy,
+} from "@/lib/appointments";
+import { useSearchParams } from "next/navigation";
 
 const inputClass =
   "mt-2 min-h-12 w-full rounded-xl border border-dark-sage/35 bg-surface px-4 py-3 text-text outline-none transition focus:border-dark-sage focus:ring-2 focus:ring-dark-sage/25";
-const appointmentTypes = [
-  "First conversation",
-  "Existing client appointment",
-  "Practical question",
-];
+const appointmentTypes = appointmentOptions;
 
 type RequestDetails = {
   name: string;
   email: string;
   type: string;
   availability: string;
+  format: string;
+  day: string;
 };
 
 export function AppointmentRequest() {
+  const searchParams = useSearchParams();
+  const availabilityRequest = searchParams.get("availability") === "check";
   const [details, setDetails] = useState<RequestDetails>({
     name: "",
     email: "",
-    type: appointmentTypes[0],
+    type: availabilityRequest
+      ? "Ask about available spaces"
+      : appointmentTypes[0],
     availability: "",
+    format: appointmentFormats[0],
+    day: appointmentDays[0],
   });
   const [review, setReview] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -43,9 +55,11 @@ export function AppointmentRequest() {
     "",
     `Name: ${details.name.trim()}`,
     `Reply email: ${details.email.trim()}`,
+    `Session format: ${details.format}`,
+    `Preferred day: ${details.day}`,
     `Preferred days or times: ${details.availability.trim() || "Flexible — please let me know what is available."}`,
     "",
-    "Please let me know the available times, session length, fee and cancellation terms before we confirm anything.",
+    "Please let me know the available start times and the next steps for arranging this appointment.",
     "",
     "Thank you,",
     details.name.trim(),
@@ -145,10 +159,11 @@ export function AppointmentRequest() {
       ) : (
         <form onSubmit={handleReview} className="space-y-6">
           <div>
-            <h2 className="text-4xl">Start with a simple enquiry.</h2>
+            <h2 className="text-4xl">Ask about a consultation or session.</h2>
             <p className="mt-3 leading-7 text-text/75">
-              Share a few practical details. You do not need to explain your
-              experiences or choose a therapy approach here.
+              Choose a session or ask about available spaces. Claire will check
+              her diary and reply directly. You do not need to share your
+              clinical history here.
             </p>
           </div>
           <fieldset>
@@ -172,6 +187,43 @@ export function AppointmentRequest() {
               ))}
             </div>
           </fieldset>
+          <label className="block font-medium" htmlFor="enquiry-format">
+            Session format
+            <select
+              id="enquiry-format"
+              name="format"
+              value={details.format}
+              onChange={(event) =>
+                setDetails({ ...details, format: event.target.value })
+              }
+              className={inputClass}
+            >
+              {appointmentFormats.map((format) => (
+                <option key={format}>{format}</option>
+              ))}
+            </select>
+          </label>
+          <label className="block font-medium" htmlFor="enquiry-day">
+            Preferred day
+            <select
+              id="enquiry-day"
+              name="day"
+              value={details.day}
+              onChange={(event) =>
+                setDetails({ ...details, day: event.target.value })
+              }
+              className={inputClass}
+            >
+              {appointmentDays.map((day) => (
+                <option key={day}>{day}</option>
+              ))}
+            </select>
+            <span className="mt-2 block text-sm font-normal text-text/70">
+              Tuesday–Thursday or Friday morning, subject to availability.
+              Evening sessions finish by 7pm; a 6:30pm start is only for a
+              30-minute appointment.
+            </span>
+          </label>
           <label className="block font-medium" htmlFor="enquiry-name">
             Your name
             <input
@@ -225,6 +277,10 @@ export function AppointmentRequest() {
               A preference only. Claire will confirm what is available.
             </span>
           </label>
+          <div className="space-y-3 border-y border-border py-5 text-sm leading-6 text-text/80">
+            <p>{paymentPolicy}</p>
+            <p>{cancellationPolicy}</p>
+          </div>
           <div className="rounded-xl bg-sage/20 p-4 text-sm leading-6 text-text/80">
             Please keep this enquiry to practical arrangements. Leave out
             medical history, payment details and anything you would prefer to
