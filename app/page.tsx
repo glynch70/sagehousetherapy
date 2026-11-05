@@ -180,10 +180,10 @@ export default function Home() {
 
           <div className="mx-auto w-full max-w-lg overflow-hidden rounded-[2rem] border border-surface/80 bg-surface shadow-[0_24px_80px_rgba(67,67,67,0.10)]">
             <Image
-              src="/images/claire-portrait.webp"
-              alt="Claire, therapist at Sage House Therapy"
-              width={1194}
-              height={1317}
+              src="/images/claire-with-dog.webp"
+              alt="Claire with a black Labrador outside The Wellness Barn"
+              width={1200}
+              height={1200}
               sizes="(min-width: 1024px) 45vw, (min-width: 640px) 512px, 100vw"
               preload
               className="h-auto w-full"
@@ -214,14 +214,14 @@ export default function Home() {
       </Section>
 
       <Section className="py-16 sm:py-20 lg:py-24">
-        <Container className="grid gap-8 lg:grid-cols-[0.86fr_1fr] lg:items-center">
-          <div className="overflow-hidden rounded-[2rem] border border-surface/80 bg-surface shadow-[0_24px_80px_rgba(67,67,67,0.10)]">
+        <Container className="grid gap-8 md:grid-cols-[14rem_1fr] md:items-center lg:gap-12">
+          <div className="mx-auto w-full max-w-56 overflow-hidden rounded-[2rem] border border-surface/80 bg-surface shadow-[0_24px_80px_rgba(67,67,67,0.10)]">
             <Image
-              src="/images/claire-with-dog.webp"
-              alt="Claire with a black Labrador outside The Wellness Barn"
-              width={1200}
-              height={1200}
-              sizes="(min-width: 1024px) 45vw, 100vw"
+              src="/images/claire-portrait.webp"
+              alt="Claire, therapist at Sage House Therapy"
+              width={1194}
+              height={1317}
+              sizes="224px"
               className="h-auto w-full"
             />
           </div>
