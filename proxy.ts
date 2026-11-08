@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 // Set to false and redeploy when Claire is ready to reopen the website.
-const maintenanceMode = true;
+const maintenanceMode = false;
 
 const maintenancePage = `<!doctype html>
 <html lang="en-GB">
