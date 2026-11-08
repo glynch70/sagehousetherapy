@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
@@ -39,29 +40,38 @@ export default function ContactPage() {
           </Button>
         </Container>
         <Container className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-16">
-          <div className="min-w-0 rounded-[2rem] border border-dark-sage/25 bg-sage/30 p-8 sm:p-10">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-dark-sage">
-              Email Claire
-            </p>
-            <a
-              href={`mailto:${contactEmail}`}
-              className="mt-5 block break-words font-serif text-3xl leading-tight text-text underline decoration-accent/70 decoration-1 underline-offset-8 transition-colors [overflow-wrap:anywhere] hover:text-dark-sage focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:text-4xl"
-            >
-              <span>{emailName}@</span>
-              <span className="block sm:inline">{emailDomain}</span>
-            </a>
-            <p className="mt-7 text-base leading-7 text-text/75">
-              Claire offers virtual appointments and in-person sessions at The
-              Wellness Barn, Tuesday–Thursday and Friday mornings. She will
-              reply to confirm available times.
-            </p>
-            <Button href={`mailto:${contactEmail}`} className="mt-8">
-              Write an Email
-            </Button>
-          </div>
-
+          <figure className="overflow-hidden rounded-[6rem_1.5rem_1.5rem_1.5rem] border border-dark-sage/15 bg-sage/20">
+            <Image
+              src="/images/claire-contact.webp"
+              alt="Claire speaking on the phone while working at her laptop"
+              width={1121}
+              height={1403}
+              sizes="(min-width: 1024px) 38vw, 100vw"
+              className="aspect-[4/5] w-full object-cover"
+            />
+          </figure>
           <div className="min-w-0">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-dark-sage">
+            <div className="rounded-[2rem] border border-dark-sage/25 bg-sage/30 p-8 sm:p-10">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-dark-sage">
+                Email Claire
+              </p>
+              <a
+                href={`mailto:${contactEmail}`}
+                className="mt-5 block break-words font-serif text-3xl leading-tight text-text underline decoration-accent/70 decoration-1 underline-offset-8 transition-colors [overflow-wrap:anywhere] hover:text-dark-sage focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:text-4xl"
+              >
+                <span>{emailName}@</span>
+                <span className="block sm:inline">{emailDomain}</span>
+              </a>
+              <p className="mt-7 text-base leading-7 text-text/75">
+                Claire offers virtual appointments and in-person sessions at The
+                Wellness Barn, Tuesday–Thursday and Friday mornings. She will
+                reply to confirm available times.
+              </p>
+              <Button href={`mailto:${contactEmail}`} className="mt-8">
+                Write an Email
+              </Button>
+            </div>
+            <p className="mt-10 text-sm font-medium uppercase tracking-[0.2em] text-dark-sage">
               What to include
             </p>
             <h2 className="mt-5 text-4xl leading-[1.05] text-text sm:text-5xl">

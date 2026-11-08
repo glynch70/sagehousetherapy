@@ -34,13 +34,13 @@ export default function AboutPage() {
           <figure className="w-52 md:w-full">
             <div className="overflow-hidden rounded-[6rem_1.25rem_1.25rem_1.25rem]">
               <Image
-                src="/images/claire-portrait.webp"
-                alt="Claire, therapist at Sage House Therapy"
-                width={1194}
-                height={1317}
+                src="/images/claire-waterside.webp"
+                alt="Claire smiling by the water"
+                width={1290}
+                height={1277}
                 sizes="(min-width: 768px) 256px, 208px"
                 preload
-                className="h-auto w-full"
+                className="aspect-[4/5] w-full object-cover object-[54%_center]"
               />
             </div>
             <figcaption className="mt-4 text-xs uppercase tracking-[0.16em] text-dark-sage">

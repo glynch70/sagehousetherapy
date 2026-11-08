@@ -154,12 +154,12 @@ export default function Home() {
           <div className="flex items-center gap-6 lg:justify-center">
             <div className="w-44 shrink-0 overflow-hidden rounded-[5rem_1rem_1rem_1rem] sm:w-52">
               <Image
-                src="/images/claire-portrait.webp"
-                alt="Claire, therapist at Sage House Therapy"
-                width={1194}
-                height={1317}
+                src="/images/claire-waterside.webp"
+                alt="Claire smiling by the water"
+                width={1290}
+                height={1277}
                 sizes="208px"
-                className="h-auto w-full"
+                className="aspect-[4/5] w-full object-cover object-[54%_center]"
               />
             </div>
             <span className="font-serif text-3xl italic text-dark-sage md:hidden">
