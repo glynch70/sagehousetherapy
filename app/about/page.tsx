@@ -59,6 +59,16 @@ export default function AboutPage() {
               <br />
               matters to you.
             </h2>
+            <figure className="mt-8 max-w-xl overflow-hidden rounded-[3rem_1rem_1rem_1rem] border border-dark-sage/15">
+              <Image
+                src="/images/claire-conversation.webp"
+                alt="Claire listening to another person across a table"
+                width={1403}
+                height={1121}
+                sizes="(min-width: 1024px) 40vw, (min-width: 640px) 576px, 100vw"
+                className="h-auto w-full"
+              />
+            </figure>
           </div>
           <div className="max-w-xl space-y-5 text-lg leading-8 text-text/75">
             <p>
