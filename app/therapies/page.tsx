@@ -7,9 +7,10 @@ import { PageIntro } from "@/components/sections/page-intro";
 import { Card } from "@/components/ui/card";
 
 export const metadata: Metadata = {
-  title: "Therapies",
+  alternates: { canonical: "/therapies" },
+  title: "Therapy Approaches & Support",
   description:
-    "Explore the therapy approaches and support available through Sage House Therapy.",
+    "Explore therapy with Claire at Sage House Therapy: support with anxiety, self-criticism, difficult experiences, relationships and loss. Online or in Edinburgh by arrangement.",
 };
 
 export default function TherapiesPage() {
@@ -173,3 +174,4 @@ export default function TherapiesPage() {
     </>
   );
 }
+

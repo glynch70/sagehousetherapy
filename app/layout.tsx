@@ -23,16 +23,17 @@ export const metadata: Metadata = {
     template: "%s | Sage House Therapy",
   },
   description:
-    "Sage House Therapy offers a calm, professional space for therapy and emotional wellbeing.",
+    "Online therapy and face-to-face appointments by arrangement with Claire at Sage House Therapy, Edinburgh. Free 15-minute consultation.",
   metadataBase: new URL("https://sagehousetherapy.uk"),
+  robots: { index: true, follow: true },
   applicationName: "Sage House Therapy",
   authors: [{ name: "Sage House Therapy" }],
   creator: "Sage House Therapy",
   publisher: "Sage House Therapy",
   openGraph: {
-    title: "Sage House Therapy",
+    title: "Sage House Therapy — Online & Edinburgh",
     description:
-      "A calm, professional space for therapy and emotional wellbeing.",
+      "Online therapy and face-to-face appointments by arrangement with Claire in Edinburgh.",
     url: "https://sagehousetherapy.uk",
     siteName: "Sage House Therapy",
     locale: "en_GB",
@@ -66,3 +67,4 @@ export default function RootLayout({
     </html>
   );
 }
+

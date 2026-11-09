@@ -6,9 +6,10 @@ import { Container } from "@/components/layout/container";
 import { PageCta } from "@/components/sections/page-cta";
 
 export const metadata: Metadata = {
-  title: "About Claire",
+  alternates: { canonical: "/about" },
+  title: "About Claire Bashford",
   description:
-    "Meet Claire, the therapist behind Sage House Therapy in Edinburgh, and learn what working together can involve.",
+    "Meet Claire Bashford at Sage House Therapy in Edinburgh. Learn about her approach to online therapy and face-to-face sessions by arrangement.",
 };
 
 export default function AboutPage() {
@@ -44,7 +45,7 @@ export default function AboutPage() {
               />
             </div>
             <figcaption className="mt-4 text-xs uppercase tracking-[0.16em] text-dark-sage">
-              Claire · Edinburgh
+              Claire Bashford · Edinburgh
             </figcaption>
           </figure>
         </Container>
@@ -61,7 +62,7 @@ export default function AboutPage() {
           </div>
           <div className="max-w-xl space-y-5 text-lg leading-8 text-text/75">
             <p>
-              Claire works with adults in Edinburgh. People come to her with
+              Claire Bashford works with adults in Edinburgh. People come to her with
               anxiety, self-criticism, difficult experiences, grief or concerns
               about their relationships.
             </p>
@@ -124,3 +125,4 @@ export default function AboutPage() {
     </>
   );
 }
+

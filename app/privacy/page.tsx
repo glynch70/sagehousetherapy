@@ -4,6 +4,7 @@ import { Section } from "@/components/layout/section";
 import { PageIntro } from "@/components/sections/page-intro";
 import { contactEmail } from "@/lib/site";
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "Website privacy",
   description:
     "How appointment enquiries and payment links work on the Sage House Therapy website.",

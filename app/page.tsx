@@ -6,9 +6,10 @@ import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Therapy for adults in Edinburgh",
+  alternates: { canonical: "/" },
+  title: "Online Therapy & Therapy in Edinburgh",
   description:
-    "Therapy with Claire at Sage House Therapy in Edinburgh. Explore support for anxiety, difficult experiences, loss and relationships, and ask about a first appointment.",
+    "Online therapy and face-to-face appointments by arrangement with Claire at Sage House Therapy, Edinburgh. Start with a free 15-minute consultation.",
 };
 
 const support = [

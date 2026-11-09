@@ -8,6 +8,7 @@ import { PageIntro } from "@/components/sections/page-intro";
 import { paymentPolicy, cancellationPolicy } from "@/lib/appointments";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/fees" },
   title: "Fees and appointments",
   description:
     "A free 15-minute consultation, £65 for a 60-minute session or £85 for a 90-minute session. Virtual or in-person appointments at The Wellness Barn.",

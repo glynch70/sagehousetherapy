@@ -8,7 +8,8 @@ import { Button } from "@/components/ui/button";
 import { contactEmail } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  alternates: { canonical: "/contact" },
+  title: "Contact Claire — Online & Edinburgh Therapy",
   description:
     "Contact Sage House Therapy to enquire about consultations and appointments in Edinburgh.",
 };

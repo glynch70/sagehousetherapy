@@ -6,6 +6,7 @@ import { PageCta } from "@/components/sections/page-cta";
 import { PageIntro } from "@/components/sections/page-intro";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/faqs" },
   title: "FAQs",
   description:
     "Find answers to common questions about therapy with Sage House Therapy.",

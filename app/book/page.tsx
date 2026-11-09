@@ -9,6 +9,7 @@ import { Section } from "@/components/layout/section";
 import { PageIntro } from "@/components/sections/page-intro";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/book" },
   title: "Request an appointment",
   description:
     "Ask Claire about an appointment, available times and fees at Sage House Therapy. Review and send your enquiry directly to Claire.",

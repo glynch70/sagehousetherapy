@@ -10,6 +10,7 @@ import { paymentPolicy, cancellationPolicy } from "@/lib/appointments";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
+  alternates: { canonical: "/payments" },
   title: "Appointment payments",
   description:
     "Payment arrangements for appointments agreed directly with Claire at Sage House Therapy.",
