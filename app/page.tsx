@@ -253,7 +253,7 @@ export default function Home() {
             {[
               {
                 title: "Tell Claire what you need",
-                text: "Use the enquiry builder to prepare a short email, then send it from your email app.",
+                text: "Complete the enquiry form, review your details and send directly to Claire.",
               },
               {
                 title: "Talk through the practical details",
@@ -324,7 +324,7 @@ export default function Home() {
               ],
               [
                 "Does the form book a time for me?",
-                "The form prepares an email for you to review and send. Claire then responds directly to agree availability and next steps.",
+                "The form sends your enquiry to Claire. She then responds directly to agree availability and next steps. No appointment is reserved automatically.",
               ],
             ].map(([question, answer]) => (
               <details key={question} className="group">
@@ -361,3 +361,4 @@ export default function Home() {
     </>
   );
 }
+

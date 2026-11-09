@@ -4,11 +4,20 @@ The website follows the same request → confirm → pay-by-link approach propos
 
 ## What is ready
 
-- `/book`: accessible enquiry builder. Visitors choose an enquiry type, enter name and reply email, optionally add availability, review the message, then open their own email app or copy it. Nothing is sent by the website. No personal details are stored in a website database or local storage.
+- `/book`: visitors enter practical details, review, and send directly through `POST /api/enquiry`. The server uses `RESEND_API_KEY` to send from `website@enquiries.sagehousetherapy.uk` to `claire@sagehousetherapy.uk`, with the visitor as Reply-To. Email-app and clipboard alternatives remain available. No enquiries are saved in a website database or local storage; Resend processes message contents and delivery records.
 - `/payments`: payment information and email fallback. A SumUp checkout button appears only when a valid owner-configured link is supplied.
 - `/privacy`: an accurate description of this website's enquiry and payment data flow; this is not a clinical-record privacy policy.
 - Primary calls to action lead to the enquiry builder. Existing clients have a separate payment route.
-- Public maintenance mode remains enabled in `proxy.ts`. Do not remove it until the owner asks to reopen.
+- Maintenance mode was removed with owner authorisation on 9 November 2026.
+
+## Direct enquiry delivery — 9 November 2026
+
+- Claire's sending domain is verified; the owner has saved the sending-only API key as a Production secret in Vercel. Never put this key in source or a NEXT_PUBLIC variable.
+- Validate fields and allowed options server-side; reject cross-origin submissions, oversized bodies, the honeypot field and implausible timing.
+- Best-effort burst limiting is per warm server instance (five attempts per 15 minutes), not a durable or distributed quota. If abuse appears, add managed rate limiting or a verified challenge.
+- Submission IDs and Resend idempotency prevent duplicate sends on retry. The UI preserves entries on failure and shows success only after Resend accepts a message.
+- No automatic appointment confirmation or payment is created. No auto-reply is sent to visitor-supplied email addresses.
+- Use only agreed non-clinical test details for delivery testing. Check Claire's inbox/spam folder and the Resend delivery event; API acceptance alone is not proof of inbox arrival.
 
 ## Claire needs to supply
 
@@ -49,3 +58,4 @@ Official SumUp instructions: https://help.sumup.com/en-GB/articles/2rTTr92lUebQ3
 - Paid therapy sessions must be paid before the session to hold the appointment. The consultation remains free.
 - Refund when the client cancels with at least 48 hours’ notice; refund if Claire cancels. No shorter-notice/no-show policy has been invented.
 - The availability route is an enquiry, not a live calendar.
+

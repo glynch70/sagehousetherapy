@@ -42,11 +42,19 @@ export function AppointmentRequest() {
   const [review, setReview] = useState(false);
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [sendError, setSendError] = useState("");
+  const [website, setWebsite] = useState("");
+  const startedAt = useRef(0);
+  const submissionId = useRef("");
+  const sendingLock = useRef(false);
   const reviewHeading = useRef<HTMLHeadingElement>(null);
 
+  useEffect(() => { startedAt.current = Date.now(); }, []);
   useEffect(() => {
     if (review) reviewHeading.current?.focus();
-  }, [review]);
+  }, [review, sent]);
 
   const message = [
     "Hello Claire,",
@@ -71,6 +79,30 @@ export function AppointmentRequest() {
     setCopied(false);
     setCopyError(false);
     setReview(true);
+  }
+
+  async function sendEnquiry() {
+    if (sendingLock.current || sent) return;
+    sendingLock.current = true;
+    setSending(true);
+    setSendError("");
+    try {
+      submissionId.current ||= crypto.randomUUID();
+      const response = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...details, website, startedAt: startedAt.current, submissionId: submissionId.current }),
+        signal: AbortSignal.timeout(20000),
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok !== true) throw new Error("send failed");
+      setSent(true);
+    } catch {
+      setSendError("Your enquiry could not be confirmed as sent. Please try again, or use the email option below. Your details are still here.");
+    } finally {
+      sendingLock.current = false;
+      setSending(false);
+    }
   }
 
   async function copyMessage() {
@@ -99,24 +131,25 @@ export function AppointmentRequest() {
           aria-current={review ? "step" : undefined}
           className={review ? "font-semibold text-text" : "text-text/65"}
         >
-          02 · Review & email
+          02 · Review & send
         </li>
       </ol>
       {review ? (
         <div>
           <p className="text-sm font-medium uppercase tracking-[0.16em] text-dark-sage">
-            Ready to review
+            {sent ? "Enquiry sent" : "Ready to review"}
           </p>
           <h2
             ref={reviewHeading}
             tabIndex={-1}
             className="mt-3 text-4xl outline-none"
           >
-            Your message to Claire.
+            {sent ? "Thank you for getting in touch." : "Your message to Claire."}
           </h2>
           <p className="mt-4 leading-7 text-text/75">
-            Nothing has been sent yet. Open your email app, check your message
-            and press send there.
+            {sent
+              ? "Your enquiry has been sent to Claire. She will reply to the email address you supplied to discuss availability. This does not reserve an appointment."
+              : "Check your details, then send your enquiry directly to Claire."}
           </p>
           <div className="mt-6 rounded-2xl border border-border bg-background/50 p-5">
             <p className="mb-4 text-sm font-medium break-all">
@@ -126,8 +159,19 @@ export function AppointmentRequest() {
               {message}
             </p>
           </div>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button href={emailHref}>
+          {!sent && <div className="mt-6">
+            <Button onClick={sendEnquiry} disabled={sending} aria-busy={sending}>
+              <Mail className="mr-2 h-4 w-4" aria-hidden="true" />
+              {sending ? "Sending…" : "Send enquiry to Claire"}
+            </Button>
+            {sendError && <p role="alert" className="mt-4 text-sm leading-6">{sendError}</p>}
+            <p className="mt-4 text-sm leading-6 text-text/70">
+              By sending, you ask Claire to contact you about this enquiry.
+              {" "}<a href="/privacy" className="underline underline-offset-4">Website privacy</a>
+            </p>
+          </div>}
+          {!sent && <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <Button href={emailHref} variant="secondary">
               <Mail className="mr-2 h-4 w-4" aria-hidden="true" />
               Open email to Claire
             </Button>
@@ -139,25 +183,30 @@ export function AppointmentRequest() {
               )}
               {copied ? "Message copied" : "Copy message"}
             </Button>
-          </div>
-          <p role="status" className="mt-3 text-sm leading-6 text-text/75">
+          </div>}
+          {!sent && <p role="status" className="mt-3 text-sm leading-6 text-text/75">
             {copied
               ? "Copied. Paste it into an email to Claire and send when you are ready."
               : copyError
                 ? "Copy is unavailable. You can select the message above and copy it manually."
                 : "If your email app does not open, copy the message into your usual email service."}
-          </p>
-          <Button
+          </p>}
+          {!sent && <Button
+            disabled={sending}
             variant="secondary"
             className="mt-7"
-            onClick={() => setReview(false)}
+            onClick={() => { submissionId.current = ""; setSendError(""); setReview(false); }}
           >
             <ArrowLeft className="mr-2 h-4 w-4" aria-hidden="true" />
             Edit enquiry
-          </Button>
+          </Button>}
         </div>
       ) : (
         <form onSubmit={handleReview} className="space-y-6">
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor="enquiry-website">Leave this field empty</label>
+            <input id="enquiry-website" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} />
+          </div>
           <div>
             <h2 className="text-4xl">Ask about a consultation or session.</h2>
             <p className="mt-3 leading-7 text-text/75">
@@ -291,12 +340,13 @@ export function AppointmentRequest() {
             <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
           </Button>
           <p className="text-sm leading-6 text-text/65">
-            Your entries stay in this page until you choose to open your email
-            app or copy them. This form does not save your details or reserve an
-            appointment.
+            Your details are sent to Claire only when you select “Send enquiry to Claire”.
+            This form does not reserve an appointment. Please read the{" "}
+            <a href="/privacy" className="underline underline-offset-4">website privacy information</a>.
           </p>
         </form>
       )}
     </div>
   );
 }
+

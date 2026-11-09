@@ -11,7 +11,7 @@ import { PageIntro } from "@/components/sections/page-intro";
 export const metadata: Metadata = {
   title: "Request an appointment",
   description:
-    "Ask Claire about an appointment, available times and fees at Sage House Therapy. Review your enquiry before emailing it.",
+    "Ask Claire about an appointment, available times and fees at Sage House Therapy. Review and send your enquiry directly to Claire.",
 };
 
 export default function BookingPage() {
@@ -58,7 +58,7 @@ export default function BookingPage() {
                 {
                   icon: MessageCircle,
                   title: "1. Ask for a session or available space",
-                  text: "Prepare a short message here, then send it from your email app.",
+                  text: "Complete the enquiry form, review your details and send directly to Claire.",
                 },
                 {
                   icon: CalendarDays,
@@ -104,3 +104,4 @@ export default function BookingPage() {
     </>
   );
 }
+

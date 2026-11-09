@@ -27,7 +27,7 @@ export default function FaqsPage() {
     {
       question: "Does an online enquiry book an appointment?",
       answer:
-        "No. The appointment enquiry helps you prepare an email. You review it and send it from your email app. Claire then confirms availability, the fee and session arrangements with you directly. No time is reserved by completing the form.",
+        "No. Complete the form, review your details and select ‘Send enquiry to Claire’ to send it directly. Claire then confirms availability, the fee and session arrangements with you directly. No time is reserved by completing the form.",
     },
     {
       question: "When do I pay?",
@@ -141,3 +141,4 @@ export default function FaqsPage() {
     </>
   );
 }
+

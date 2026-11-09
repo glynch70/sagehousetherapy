@@ -13,7 +13,7 @@ export default function PrivacyPage() {
     <>
       <PageIntro
         eyebrow="Website privacy"
-        title="Your enquiry stays in your hands."
+        title="How your enquiry is handled."
         introduction="This page explains how this website handles appointment enquiries and payment links. Ask Claire separately about the privacy arrangements for therapy and clinical records."
       />
       <Section className="bg-surface/70">
@@ -21,11 +21,11 @@ export default function PrivacyPage() {
           {[
             [
               "The appointment enquiry",
-              "The enquiry form prepares a message in your browser. It does not submit your entries to a website database, save them in local storage or reserve an appointment. Entries remain in the open page until you leave or reload it; your browser may remember information through its own autofill settings.",
+              "The enquiry form collects your name, reply email, enquiry type, session format and availability preferences. When you select ‘Send enquiry to Claire’, the website processes those details and sends them to Claire through Resend, the email delivery provider. Resend processes and retains message content and delivery records under its privacy arrangements. Claire uses the message to respond and arrange appointments. The website does not save enquiries in its own database or local storage and does not reserve an appointment.",
             ],
             [
-              "When you choose to email",
-              "Selecting ‘Open email to Claire’ passes the prepared message to your email app. You still need to press send in that app. Your chosen email service handles the message under its own privacy arrangements. If you copy the message, it is placed on your device’s clipboard. Please use the form for practical arrangements and leave out sensitive clinical information.",
+              "Email alternatives",
+              "If you use the alternative ‘Open email to Claire’ button, it passes the prepared message to your email app. You still need to press send there. Your chosen email service handles the message under its own privacy arrangements. If you copy the message, it is placed on your device’s clipboard. Please use the form for practical arrangements and leave out sensitive clinical information.",
             ],
             [
               "Replies and appointments",
@@ -37,7 +37,7 @@ export default function PrivacyPage() {
             ],
             [
               "Website delivery",
-              "The website is hosted on Vercel. The hosting service processes technical request information needed to deliver and protect the site. This website’s application code does not add advertising trackers, analytics tools or embedded third-party booking widgets.",
+              "The website is hosted on Vercel. The hosting service processes technical request information needed to deliver and protect the site. Basic spam checks use a hidden form field, submission timing and a short-lived, hashed network identifier to limit repeated submissions. This identifier is kept in server memory for up to 15 minutes, subject to server restarts; enquiry contents are not deliberately written to application logs. This website’s application code does not add advertising trackers, analytics tools or embedded third-party booking widgets.",
             ],
           ].map(([title, text]) => (
             <div key={title}>
@@ -60,3 +60,4 @@ export default function PrivacyPage() {
     </>
   );
 }
+

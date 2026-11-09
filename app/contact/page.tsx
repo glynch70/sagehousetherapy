@@ -31,7 +31,7 @@ export default function ContactPage() {
               Looking for an appointment?
             </p>
             <p className="mt-3 text-lg leading-8 text-text/75">
-              Use the guided enquiry to prepare your message, or email Claire
+              Use the guided enquiry to send your message, or email Claire
               directly below.
             </p>
           </div>
@@ -159,3 +159,4 @@ export default function ContactPage() {
     </>
   );
 }
+
