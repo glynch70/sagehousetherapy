@@ -22,13 +22,13 @@ The website follows the same request → confirm → pay-by-link approach propos
 ## Claire needs to supply
 
 1. Confirm that `claire@sagehousetherapy.uk` receives email. Send a real end-to-end enquiry only with permission, using agreed test details.
-2. Confirm the duration in minutes of a “therapeutic hour”, the precise Friday schedule and the fee/eligibility for any 30-minute therapeutic appointments.
+2. Confirm the precise Friday schedule. Claire has confirmed that paid therapy sessions last 60 or 90 minutes; no 30-minute sessions are offered.
 3. Create her own SumUp business account and complete SumUp's verification and bank setup directly. Do not collect her bank details, identity documents or passwords in chat or repository files.
 4. Create a payment link for an agreed service/fee. Use a reusable link only if the same checkout can be safely offered to all relevant confirmed clients. Otherwise send individual payment links directly after confirmation and leave the website's general checkout disabled.
 
 ## Connect the checkout
 
-Set `SAGE_PAYMENT_LINK_HOUR` for the £65 therapeutic-hour checkout and `SAGE_PAYMENT_LINK_90_MINUTES` for the £85 90-minute checkout in the existing Vercel project `sagehousetherapy` (production and any intended preview environment), then redeploy. Each link is validated independently. Do not set one price’s checkout link for the other service. The former generic `SAGE_PAYMENT_LINK` setting is no longer used. Use only Claire's verified link, never Colin's account or an unrelated merchant. Supported exact hostnames: `pay.sumup.com`, `checkout.sumup.com`, `sumup.me`. HTTPS and a non-empty path are required. If SumUp supplies a different official hostname, verify it before updating `lib/payments.ts`.
+Set `SAGE_PAYMENT_LINK_HOUR` for the £65 60-minute checkout and `SAGE_PAYMENT_LINK_90_MINUTES` for the £85 90-minute checkout in the existing Vercel project `sagehousetherapy` (production and any intended preview environment), then redeploy. Each link is validated independently. Do not set one price’s checkout link for the other service. The former generic `SAGE_PAYMENT_LINK` setting is no longer used. Use only Claire's verified link, never Colin's account or an unrelated merchant. Supported exact hostnames: `pay.sumup.com`, `checkout.sumup.com`, `sumup.me`. HTTPS and a non-empty path are required. If SumUp supplies a different official hostname, verify it before updating `lib/payments.ts`.
 
 These variables are not secrets: they become the public checkout links on `/payments`. Never use a private dashboard URL, access token or API key here. Do not accept a checkout URL or amount from visitor query parameters. A missing/invalid setting keeps the email fallback visible. There is no success callback that can mark a session paid merely because someone follows a URL.
 
@@ -51,9 +51,9 @@ Official SumUp instructions: https://help.sumup.com/en-GB/articles/2rTTr92lUebQ3
 ## Confirmed by Claire, 5 November 2026
 
 - Free 15-minute consultation.
-- £65 per therapeutic hour; £85 for a 90-minute therapeutic session. Do not assume the therapeutic hour is 60 minutes until confirmed.
+- £65 for a 60-minute therapy session; £85 for a 90-minute therapy session (duration clarified by Claire on 9 November 2026).
 - Virtual or in person at The Wellness Barn.
-- Tuesday–Thursday from 8:30am, finishing by 7pm. Garry clarified that the last 6:30pm start is for a 30-minute appointment. Do not offer that start for longer sessions. No separate 30-minute price has been supplied.
+- Tuesday–Thursday from 8:30am, finishing by 7:30pm. Claire clarified on 9 November 2026 that 6:30pm–7:30pm is a 60-minute session. No 30-minute sessions are offered. The consultation is 15 minutes and free; treatment sessions are 60 or 90 minutes according to the treatment plan.
 - Friday morning appointments: exact starts remain unclear in Claire's message, so no exact Friday slots are published.
 - Paid therapy sessions must be paid before the session to hold the appointment. The consultation remains free.
 - Refund when the client cancels with at least 48 hours’ notice; refund if Claire cancels. No shorter-notice/no-show policy has been invented.

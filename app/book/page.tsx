@@ -20,7 +20,7 @@ export default function BookingPage() {
       <PageIntro
         eyebrow="Your next step"
         title="Tell Claire what you have in mind."
-        introduction="Request a free 15-minute consultation, enquire about a £65 therapeutic hour or £85 90-minute session, or ask about available spaces. Appointments are virtual or in person at The Wellness Barn."
+        introduction="Request a free 15-minute consultation, enquire about a £65 60-minute session or £85 90-minute session, or ask about available spaces. Appointments are virtual or in person at The Wellness Barn."
       />
       <Section className="border-y border-border bg-surface/55">
         <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
@@ -48,9 +48,9 @@ export default function BookingPage() {
                 {availabilitySummary}
               </p>
               <p className="mt-3 text-sm leading-7 text-text/75">
-                The 6:30pm start is not available for a therapeutic-hour or
-                90-minute session. Ask Claire about arrangements for a half-hour
-                appointment.
+                The consultation is 15 minutes and free. Therapy sessions are
+                60 or 90 minutes, depending on your treatment plan. The
+                6:30pm–7:30pm appointment is a 60-minute session.
               </p>
             </div>
             <ol className="mt-8 space-y-7">

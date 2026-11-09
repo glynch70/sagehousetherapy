@@ -1,6 +1,6 @@
 export const appointmentOptions = [
   "Free 15-minute consultation",
-  "Therapeutic hour — £65",
+  "60-minute therapy session — £65",
   "90-minute therapy session — £85",
   "Ask about available spaces",
   "Practical question",
@@ -26,4 +26,5 @@ export const cancellationPolicy =
   "Your payment will be refunded if you cancel with at least 48 hours’ notice. If Claire cancels your session, you will be refunded.";
 
 export const availabilitySummary =
-  "Tuesday–Thursday from 8:30am, with sessions finishing by 7pm. The latest start is 6:30pm for a 30-minute appointment. Friday appointments are in the morning; Claire confirms exact times.";
+  "Tuesday–Thursday from 8:30am, with sessions finishing by 7:30pm. The 6:30pm–7:30pm appointment is a 60-minute session. Friday appointments are in the morning; Claire confirms exact times.";
+

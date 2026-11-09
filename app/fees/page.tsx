@@ -10,7 +10,7 @@ import { paymentPolicy, cancellationPolicy } from "@/lib/appointments";
 export const metadata: Metadata = {
   title: "Fees and appointments",
   description:
-    "A free 15-minute consultation, £65 per therapeutic hour or £85 for a 90-minute session. Virtual or in-person appointments at The Wellness Barn.",
+    "A free 15-minute consultation, £65 for a 60-minute session or £85 for a 90-minute session. Virtual or in-person appointments at The Wellness Barn.",
 };
 
 export default function FeesPage() {
@@ -19,7 +19,7 @@ export default function FeesPage() {
       <PageIntro
         eyebrow="Fees & arrangements"
         title="Know the details before you begin."
-        introduction="Start with a free 15-minute consultation, or ask Claire about a therapeutic appointment. Sessions are available virtually or in person at The Wellness Barn."
+        introduction="Start with a free 15-minute consultation. Therapy sessions last 60 or 90 minutes, depending on your treatment plan, and are available virtually or in person at The Wellness Barn."
       />
       <Section className="border-b border-border bg-surface/70">
         <Container>
@@ -32,10 +32,10 @@ export default function FeesPage() {
                 text: "An opportunity to ask questions and discuss whether you would like to work with Claire.",
               },
               {
-                name: "Therapeutic hour",
+                name: "Therapy session",
                 price: "£65",
-                length: "Per therapeutic hour",
-                text: "Ask Claire about arranging a therapeutic-hour appointment and what to expect.",
+                length: "60 minutes",
+                text: "A 60-minute therapy session, agreed with Claire as part of your treatment plan.",
               },
               {
                 name: "Longer therapy session",
@@ -74,7 +74,7 @@ export default function FeesPage() {
               ],
               [
                 "Appointment days",
-                "Tuesday–Thursday appointments begin from 8:30am, with sessions finishing by 7pm. The latest start is 6:30pm for a 30-minute appointment. Friday appointments are in the morning. Claire confirms the exact time for your chosen session.",
+                "Tuesday–Thursday appointments begin from 8:30am, with sessions finishing by 7:30pm. The 6:30pm–7:30pm appointment is a 60-minute session. Friday appointments are in the morning. Claire confirms the exact time for your chosen session.",
               ],
               ["Payment before your session", paymentPolicy],
               [
@@ -103,3 +103,4 @@ export default function FeesPage() {
     </>
   );
 }
+

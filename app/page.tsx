@@ -320,7 +320,7 @@ export default function Home() {
               ],
               [
                 "How much does it cost?",
-                "The 15-minute consultation is free. Therapy is £65 per therapeutic hour, or £85 for a 90-minute session. Paid sessions must be paid for in advance to hold the appointment.",
+                "The 15-minute consultation is free. Therapy is £65 for a 60-minute session, or £85 for a 90-minute session. Paid sessions must be paid for in advance to hold the appointment.",
               ],
               [
                 "Does the form book a time for me?",

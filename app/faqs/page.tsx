@@ -16,7 +16,7 @@ export default function FaqsPage() {
     {
       question: "Can I check available spaces?",
       answer:
-        "Yes. Choose ‘Check available spaces’ on the homepage, or ‘Ask about available spaces’ in the appointment enquiry. Appointments are offered Tuesday–Thursday from 8:30am, with sessions finishing by 7pm, and on Friday mornings. A 6:30pm start is only for a 30-minute appointment. Claire checks her diary and confirms available start times directly. The website does not show a live calendar or reserve appointments automatically.",
+        "Yes. Choose ‘Check available spaces’ on the homepage, or ‘Ask about available spaces’ in the appointment enquiry. Appointments are offered Tuesday–Thursday from 8:30am, with sessions finishing by 7:30pm, and on Friday mornings. The 6:30pm–7:30pm appointment is a 60-minute session. Claire checks her diary and confirms available start times directly. The website does not show a live calendar or reserve appointments automatically.",
     },
     {
       question: "What is the cancellation and refund policy?",
@@ -67,7 +67,7 @@ export default function FaqsPage() {
     {
       question: "How much do sessions cost?",
       answer:
-        "A 15-minute consultation is free. The fee is £65 per therapeutic hour or £85 for a 90-minute therapeutic session. Sessions are available virtually or in person at The Wellness Barn.",
+        "A 15-minute consultation is free. The fee is £65 for a 60-minute session or £85 for a 90-minute therapeutic session. Sessions are available virtually or in person at The Wellness Barn.",
     },
     {
       question: "What if I am nervous about starting?",

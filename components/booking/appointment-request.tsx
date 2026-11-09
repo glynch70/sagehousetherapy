@@ -269,8 +269,8 @@ export function AppointmentRequest() {
             </select>
             <span className="mt-2 block text-sm font-normal text-text/70">
               Tuesday–Thursday or Friday morning, subject to availability.
-              Evening sessions finish by 7pm; a 6:30pm start is only for a
-              30-minute appointment.
+              Evening sessions finish by 7:30pm. The 6:30pm–7:30pm appointment
+              is a 60-minute session.
             </span>
           </label>
           <label className="block font-medium" htmlFor="enquiry-name">

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function PaymentsPage() {
   const paymentLinks = [
     {
-      label: "Therapeutic hour",
+      label: "60-minute session",
       fee: "£65",
       href: getPaymentLink(process.env.SAGE_PAYMENT_LINK_HOUR),
     },
@@ -99,7 +99,7 @@ export default function PaymentsPage() {
               <div className="py-5">
                 <dt className="font-medium">Fees and session length</dt>
                 <dd className="mt-2 leading-7 text-text/75">
-                  £65 per therapeutic hour, or £85 for a 90-minute session. The
+                  £65 for a 60-minute session, or £85 for a 90-minute session. The
                   15-minute consultation is free.
                 </dd>
               </div>
@@ -131,3 +131,4 @@ export default function PaymentsPage() {
     </>
   );
 }
+
